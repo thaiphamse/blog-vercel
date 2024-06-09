@@ -1,9 +1,8 @@
 
 module.exports = (app) => {
-    app.get("/", (req, res ) => {
+    app.get("/", (req, res) => {
 
-        res.render('index')
+        res.send('hi')
     })
-  
-  }
-  
+
+}
