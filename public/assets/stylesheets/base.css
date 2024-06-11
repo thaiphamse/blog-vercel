@@ -4,6 +4,8 @@
   scroll-behavior: smooth;
 }
 
+.btn {}
+
 body {
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -94,29 +96,6 @@ h6 {
   font-weight: 700;
   color: #012970;
   font-family: "Nunito", sans-serif;
-}
-
-.header {
-  transition: all 0.5s;
-  z-index: 997;
-  height: 60px;
-  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
-  background-color: #fff;
-  padding-left: 20px;
-  /* Toggle Sidebar Button */
-  /* Search Bar */
-}
-
-.header .toggle-sidebar-btn {
-  font-size: 32px;
-  padding-left: 10px;
-  cursor: pointer;
-  color: #012970;
-}
-
-.header .search-bar {
-  min-width: 360px;
-  padding: 0 20px;
 }
 
 @media (max-width: 1199px) {}
@@ -386,9 +365,8 @@ h6 {
 /*--------------------------------------------------------------
   # Footer
   --------------------------------------------------------------*/
-main.container {
-  margin-top: 60px;
-}
+
+.container-fluid {}
 
 .main-content {
   height: calc(100vh - 60px);
@@ -397,6 +375,37 @@ main.container {
 /* Small devices (landscape phones, 576px and up) */
 @media (max-width: 575.98px) {
   .search-bar {
-    min-width: 70% !important;
+    min-width: 50% !important;
   }
+}
+
+footer {
+  height: 40px;
+}
+
+.introduce-section {
+  background-color: #F3F7EC;
+  color: #005C78;
+}
+
+/* Custom Bootstrap Colors */
+.text-primary {
+  color: #005C78 !important;
+}
+
+
+.navbar {
+  background-color: #F3F7EC;
+}
+
+.bg-primary {
+  background-color: #005C78 !important;
+}
+
+.text-info {
+  color: #41C9E2 !important;
+}
+
+.bg-info {
+  background-color: #41C9E2 !important;
 }
