@@ -269,8 +269,9 @@ h6 {
   line-height: 0;
 }
 
-.header-nav .profile .dropdown-item:hover {
-  background-color: #f6f9ff;
+.profile .dropdown-item:hover {
+  background-color: #cfcfcf32;
+  color: #005C78;
 }
 
 
@@ -394,9 +395,12 @@ footer {
 }
 
 
-.navbar {
+.navbar,
+.dropdown-menu {
   background-color: #F3F7EC;
 }
+
+.dropdown-menu {}
 
 .bg-primary {
   background-color: #005C78 !important;
@@ -408,4 +412,17 @@ footer {
 
 .bg-info {
   background-color: #41C9E2 !important;
+}
+
+
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+
+.navbar .bars-icon {
+  font-size: 36px;
+}
+
+.nav-link:hover {
+  color: #E88D67 !important;
 }
