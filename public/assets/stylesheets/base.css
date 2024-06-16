@@ -5,8 +5,7 @@
     scroll-behavior: smooth;
 }
 
-.btn {
-}
+.btn {}
 
 body {
     /* font-family: "Plus Jakarta Sans", sans-serif; */
@@ -90,8 +89,7 @@ h6 {
     font-family: "Nunito", sans-serif;
 }
 
-@media (max-width: 1199px) {
-}
+@media (max-width: 1199px) {}
 
 .header .search-form {
     width: 100%;
@@ -133,7 +131,7 @@ h6 {
     list-style: none;
 }
 
-.header-nav > ul {
+.header-nav>ul {
     margin: 0;
     padding: 0;
 }
@@ -151,6 +149,7 @@ h6 {
 
 .header-nav .nav-profile img {
     max-height: 36px;
+
 }
 
 .header-nav .nav-profile span {
@@ -359,8 +358,7 @@ h6 {
   # Footer
   --------------------------------------------------------------*/
 
-.container-fluid {
-}
+.container-fluid {}
 
 .main-content {
     height: calc(100vh - 60px);
@@ -387,13 +385,16 @@ footer {
     color: #005c78 !important;
 }
 
+.navbar {
+    min-height: 70px;
+}
+
 .navbar,
 .dropdown-menu {
     background-color: #f3f7ec;
 }
 
-.dropdown-menu {
-}
+.dropdown-menu {}
 
 .bg-primary {
     background-color: #005c78 !important;
@@ -417,4 +418,64 @@ footer {
 
 .nav-link:hover {
     color: #e88d67 !important;
+}
+
+/* login page */
+.form-container {
+    font-size: 0;
+    height: 100%;
+}
+
+
+.form-container .right-content {
+    text-align: center;
+    width: 100%;
+    padding: 30px 50px;
+    display: inline-block;
+    height: 100%;
+}
+
+.form-container .right-content .form-title {
+    color: #888;
+    font-family: sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 0 2px;
+    margin: 0 0 30px;
+}
+
+
+
+.form-container .form-horizontal .form-group {
+    margin: 0 0 20px;
+}
+
+.form-container .form-horizontal .form-group:nth-of-type(2) {
+    margin-bottom: 35px;
+}
+
+.form-container .form-horizontal .form-group label {
+    font-weight: 500;
+}
+
+.form-container .form-horizontal .form-control {
+    color: #888;
+    background: #f9f9f9;
+    font-weight: 400;
+    letter-spacing: 1px;
+    height: 40px;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+}
+
+.form-container .form-horizontal .form-control:focus {
+    box-shadow: 0 0 5px #FF97A8;
+}
+
+.toast-container {
+    margin-top: 80px;
 }

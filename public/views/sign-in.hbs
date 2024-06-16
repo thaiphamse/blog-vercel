@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <title>Medium – Sign in</title>
+</head>
+
+<body style="">
+    {{toast.message}}
+    <div class="container text-center p-sm-5">
+        <div class="container shadow px-sm-5 py-3 col-md-10 form-container">
+            <h1>To start writing, join Medium. It's fast and free.</h1>
+            <div class="right-content">
+                <h3 class="form-title">Đăng nhập</h3>
+                <p class="msg text-danger">{{msg}}</p>
+                <form class="form-horizontal" action="/auth/login/password" method="post">
+                    <div class="form-group">
+                        <label>Tên đăng nhập</label>
+                        <input required type="text" class="form-control" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input required minlength="6" type="password" class="form-control" name="password">
+                    </div>
+                    <button class="btn signin" type="submit">Đăng nhập</button>
+
+                    <a href="" class="forgot">Quên mật khẩu</a>
+                </form>
+
+            </div>
+            <div class="container p-3">
+                <div>
+                    <a href="#" class="btn rounded-pill border-dark my-3">
+                        <img src="../images/google.png" width="20" alt="">
+                        <span class="ms-2">Sign in with Google</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <p>
+                No account?
+                <a href="#" class="text-success fw-bold">Create one</a>
+            </p>
+            <div class="col-sm-8 m-auto text-center">
+                <p class="text-secondary">Click “Sign In” to agree to Medium’s
+                    <a class="text-dark" href="#">Terms of Service</a> and acknowledge that Medium’s
+                    <a class="text-dark" href="#">Privacy Policy</a> appliesto you.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

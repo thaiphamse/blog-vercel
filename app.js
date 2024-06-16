@@ -20,7 +20,7 @@ dbConnect.connect();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3000", // allow to server to accept request from different origin
     credentials: true,
     "Access-Control-Allow-Origin": "*",
   }),
@@ -51,7 +51,6 @@ app.use(
 );
 
 app.use(logger("dev"));
-
 routes(app);
 
 module.exports = app;

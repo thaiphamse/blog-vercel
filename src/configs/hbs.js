@@ -82,5 +82,5 @@ module.exports = (app) => {
   }));
   // config view engine and path to views
   app.set('view engine', '.hbs');
-  app.set('views', path.join(__dirname, '../../../../', '/public/views'));
+  app.set('views', path.join(__dirname, '../../', '/public/views'));
 }
