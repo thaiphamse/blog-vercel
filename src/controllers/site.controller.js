@@ -8,6 +8,15 @@ const getIndexPage = async (req, res) => {
         title: "Trang chủ"
     })
 }
+const getPostPage = async (req, res) => {
+
+    res.render('post', {
+        ...baseResponse,
+        // toast: false,
+        title: "Blog page"
+    })
+}
 module.exports = {
-    getIndexPage
+    getIndexPage,
+    getPostPage
 }

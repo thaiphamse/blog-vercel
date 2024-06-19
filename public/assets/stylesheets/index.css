@@ -1,4 +1,9 @@
 .navbar,
 .dropdown-menu {
-    background-color: var(--header_color);
+    background-color: var(--header_color) !important;
+}
+
+.introduce-section {
+    background-color: #f3f7ec;
+    color: var(--blue_button);
 }

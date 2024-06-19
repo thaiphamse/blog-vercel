@@ -10,8 +10,18 @@
     --blue_button: #005C78;
 }
 
+a,
+a:hover {
+    text-decoration: none !important;
+}
+
 p {
     color: #000;
+    line-height: 1.5;
+}
+
+main.wrapper {
+    margin-top: 60px;
 }
 
 .btn {}
@@ -19,25 +29,22 @@ p {
 body {
     /* font-family: "Plus Jakarta Sans", sans-serif; */
     font-family: "Roboto", sans-serif;
-    background: #f6f9ff;
+    background-color: #f6f9ff !important;
 }
 
 
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Roboto", sans-serif;
+.header-text-logo,
+.nav-link {
+
+    color: var(--blue_text) !important;
 }
 
 /*--------------------------------------------------------------
   # Main
   --------------------------------------------------------------*/
 #main {
-    margin-top: 60px;
+    /* margin-top: 60px; */
     padding: 20px 30px;
     transition: all 0.3s;
 }
@@ -367,10 +374,7 @@ footer {
     height: 40px;
 }
 
-.introduce-section {
-    background-color: #f3f7ec;
-    color: var(--blue_button);
-}
+
 
 /* Custom Bootstrap Colors */
 .text-primary {
