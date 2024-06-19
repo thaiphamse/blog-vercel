@@ -1,0 +1,4 @@
+.navbar,
+.dropdown-menu {
+    background-color: var(--header_color);
+}

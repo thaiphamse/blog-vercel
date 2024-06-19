@@ -2,7 +2,7 @@
 
   <nav class="navbar navbar-light navbar-expand-md py-3 border-bottom">
     <div class="container">
-      <a href="/" class="navbar-brand text-primary " style="font-size: 24px;">
+      <a href="/" class="navbar-brand text-primary" style="font-size: 24px;">
         <img src="/assets/imgs/logo.png" alt="" height="25px">
         TECHSHARE
       </a>
@@ -19,7 +19,7 @@
           <li class="nav-item"><a href="#" class="nav-link text-dark text-primary">Viết bài</a>
           </li>
           <li class="nav-item"><a href="#" class="nav-link text-dark text-primary">Tác giả</a></li>
-
+          {{#with user}}
           <li class="nav-item  dropdown profile">
             <a title="User name" href=" #" class="nav-link text-primary dropdown-toggle fw-bold" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,6 +34,7 @@
               <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
             </ul>
           </li>
+          {{/with}}
           <li class="nav-item"><a href="/sign-in" class="nav-link btn rounded-pill text-light bg-primary">Đăng
               nhập/Đăng ký</a></li>
         </ul>

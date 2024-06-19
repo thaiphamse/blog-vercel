@@ -3,6 +3,15 @@
 
 :root {
     scroll-behavior: smooth;
+    /* Declear color */
+    --header_color: #f3f7ec;
+    --orange_color: #E88D67;
+    --blue_text: #006989;
+    --blue_button: #005C78;
+}
+
+p {
+    color: #000;
 }
 
 .btn {}
@@ -13,15 +22,7 @@ body {
     background: #f6f9ff;
 }
 
-a {
-    color: #4154f1;
-    text-decoration: none;
-}
 
-a:hover {
-    color: #717ff5;
-    text-decoration: none;
-}
 
 h1,
 h2,
@@ -29,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Nunito", sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -263,7 +264,7 @@ h6 {
 
 .profile .dropdown-item:hover {
     background-color: #cfcfcf32;
-    color: #005c78;
+    color: var(--blue_button);
 }
 
 /*--------------------------------------------------------------
@@ -358,17 +359,8 @@ h6 {
   # Footer
   --------------------------------------------------------------*/
 
-.container-fluid {}
-
 .main-content {
     height: calc(100vh - 60px);
-}
-
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 575.98px) {
-    .search-bar {
-        min-width: 50% !important;
-    }
 }
 
 footer {
@@ -377,27 +369,23 @@ footer {
 
 .introduce-section {
     background-color: #f3f7ec;
-    color: #005c78;
+    color: var(--blue_button);
 }
 
 /* Custom Bootstrap Colors */
 .text-primary {
-    color: #005c78 !important;
+    color: var(--blue_button) !important;
 }
 
 .navbar {
     min-height: 70px;
 }
 
-.navbar,
-.dropdown-menu {
-    background-color: #f3f7ec;
-}
 
 .dropdown-menu {}
 
 .bg-primary {
-    background-color: #005c78 !important;
+    background-color: var(--blue_button) !important;
 }
 
 .text-info {
@@ -417,64 +405,9 @@ footer {
 }
 
 .nav-link:hover {
-    color: #e88d67 !important;
+    color: var(--orange_color) !important;
 }
 
-/* login page */
-.form-container {
-    font-size: 0;
-    height: 100%;
-}
-
-
-.form-container .right-content {
-    text-align: center;
-    width: 100%;
-    padding: 30px 50px;
-    display: inline-block;
-    height: 100%;
-}
-
-.form-container .right-content .form-title {
-    color: #888;
-    font-family: sans-serif;
-    font-size: 40px;
-    font-weight: 400;
-    text-align: center;
-    text-transform: uppercase;
-    padding: 0 0 2px;
-    margin: 0 0 30px;
-}
-
-
-
-.form-container .form-horizontal .form-group {
-    margin: 0 0 20px;
-}
-
-.form-container .form-horizontal .form-group:nth-of-type(2) {
-    margin-bottom: 35px;
-}
-
-.form-container .form-horizontal .form-group label {
-    font-weight: 500;
-}
-
-.form-container .form-horizontal .form-control {
-    color: #888;
-    background: #f9f9f9;
-    font-weight: 400;
-    letter-spacing: 1px;
-    height: 40px;
-    padding: 6px 12px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: none;
-}
-
-.form-container .form-horizontal .form-control:focus {
-    box-shadow: 0 0 5px #FF97A8;
-}
 
 .toast-container {
     margin-top: 80px;
