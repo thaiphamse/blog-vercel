@@ -31,6 +31,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(cookieParser());
 console.log("app.js: ", process.env.NODE_ENV);
 // Sử dụng middleware session
 app.use(

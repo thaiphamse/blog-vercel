@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/assets/stylesheets/login.css">
+    <title>Medium – Sign in</title>
+</head>
+
+<body style="">
+    {{toast.message}}
+    <div class="container p-sm-5">
+        <div class="container shadow px-sm-5 py-3 col-md-12 col-xl-6 form-container">
+            <!-- Login 13 - Bootstrap Brain Component -->
+            <div class="text-center mt-2">
+                <h1 class="login-title">TECHSHARE</h1>
+            </div>
+            <div class=" pt-4 pb-2 ps-4 pe-4">
+                <div class="d-flex">
+                    <p class="mb-4 m-auto fw-thin fst-italic text-secondary">Đăng ký vào Technology Share để trải
+                        nghiệm
+                        đầy đủ tính
+                        năng</p>
+
+                </div>
+                <form action="/auth/register" class="signin-form" method="POST">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Tài khoản</label>
+                        <input type="text" name="username" class="form-control pt-2 pb-2 mt-1"
+                            placeholder="Tài khoản đăng nhập" required="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for="password">Mật khẩu</label>
+                        <input type="password" name="password" class="form-control  pt-2 pb-2 mt-1"
+                            placeholder="Mật khẩu của bạn" required="">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for="password">Xác nhận mật khẩu</label>
+                        <input type="password" name="re-password" class="form-control  pt-2 pb-2 mt-1"
+                            placeholder="Nhập lại mật khẩu" required="">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit " class="form-control btn btn-primary submit px-3">Đăng ký
+                        </button>
+                    </div>
+                </form>
+                <p class="text-center mt-2">
+                    Đã có tài khoản?
+                    <a href="/auth/login" class="text-success fw-bold">Đăng nhập!</a>
+                </p>
+            </div>
+            <div class="container p-0 text-center">
+                <a href="#" class="btn my-0 google border-dark text-dark rounded-pill">
+                    <img src="/assets/imgs/logo_google.webp" width="26" alt="">
+                    <span class="ms-2">Tiếp tục với Google</span>
+                </a>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

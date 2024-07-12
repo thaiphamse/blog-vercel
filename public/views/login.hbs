@@ -26,14 +26,16 @@
                         năng</p>
 
                 </div>
-                <form action="#" class="signin-form">
+                <form accept="" action="/login" class="signin-form" method="POST">
                     <div class="form-group mb-3">
                         <label class="label" for="name">Tài khoản</label>
-                        <input type="text" class="form-control pt-2 pb-2 mt-1" placeholder="Tài khoản" required="">
+                        <input type="text" name="username" class="form-control pt-2 pb-2 mt-1"
+                            placeholder="Tài khoản đăng nhập" required="">
                     </div>
                     <div class="form-group mb-3">
                         <label class="label" for="password">Mật khẩu</label>
-                        <input type="password" class="form-control  pt-2 pb-2 mt-1" placeholder="Mật khẩu" required="">
+                        <input type="password" name="password" class="form-control  pt-2 pb-2 mt-1"
+                            placeholder="Mật khẩu của bạn" required="">
                     </div>
                     <div class="form-group">
                         <button type="submit " class="form-control btn btn-primary submit px-3">Đăng nhập
@@ -42,7 +44,7 @@
                 </form>
                 <p class="text-center mt-2">
                     Chưa có tài khoản?
-                    <a href="#" class="text-success fw-bold">Đăng ký ngay!</a>
+                    <a href="/auth/register" class="text-success fw-bold">Đăng ký ngay!</a>
                 </p>
             </div>
             <div class="container p-0 text-center">

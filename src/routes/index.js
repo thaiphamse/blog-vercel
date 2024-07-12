@@ -1,9 +1,9 @@
 const userModel = require("../models/user.js");
 const siteRoute = require("./site.route.js");
-const loginRoute = require("./login.route.js");
+const authRoute = require("./auth.route.js");
 module.exports = (app) => {
 
-  app.use("/sign-in", loginRoute)
+  app.use("/auth", authRoute)
   app.use("/", siteRoute);
 
   // app.use(function (req, res, next) {

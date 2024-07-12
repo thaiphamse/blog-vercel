@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const users = new Schema({
   username: {
     type: String,
-    unique: true,
+    index: true,
   },
   password: String,
   fullname: {
@@ -14,6 +14,7 @@ const users = new Schema({
   },
   email: {
     type: String,
+    index: true,
     unique: true,
     required: [true, 'Email is required'],
     validate: { //custom validation for email

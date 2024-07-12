@@ -1,14 +1,36 @@
 const baseResponse = require('../configs/base.response')
-const getSignInPage = async (req, res, next) => {
+const userModel = require('../models/user')
+const getLoginPage = async (req, res, next) => {
     try {
 
-        res.render('sign-in', {
+        res.render('login', {
             ...baseResponse,
+            title: "Đăng nhập"
         })
 
     } catch (err) {
         next(err)
     }
+}
+const getRegisterPage = async (req, res, next) => {
+    res.render('register', {
+        ...baseResponse,
+        title: "Đăng ký"
+    })
+}
+const register = async (req, res, next) => {
+    const registerBody = req.body
+    let newUser = new userModel({
+        username: "test",
+        password: 'test',
+        email: "hihi123@gmail.com",
+    })
+    await newUser.save()
+    console.log(registerBody)
+}
+const login = async (req, res, next) => {
+    const loginBody = req.body
+    console.log(loginBody)
 }
 /**
  * Đoạn code dùng để tạo một Express.js server phục vụ cho việc xác thực OAuth login với Google.
@@ -103,5 +125,8 @@ app.get('/api/oauth/google', async (req, res, next) => {
 })
 */
 module.exports = {
-    getSignInPage
+    getRegisterPage,
+    getLoginPage,
+    register,
+    login,
 }

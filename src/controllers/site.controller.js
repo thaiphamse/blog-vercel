@@ -13,7 +13,7 @@ const getPostPage = async (req, res) => {
     res.render('post', {
         ...baseResponse,
         // toast: false,
-        title: "Blog page"
+        title: "Bài đăng"
     })
 }
 module.exports = {
