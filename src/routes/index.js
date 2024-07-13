@@ -1,9 +1,12 @@
 const userModel = require("../models/user.js");
 const siteRoute = require("./site.route.js");
 const authRoute = require("./auth.route.js");
+const passport = require('./passport.js')
 module.exports = (app) => {
 
   app.use("/auth", authRoute)
+  app.use("/oauth2", passport) //google oauth2
+  app.use("/redirect", passport) //google redirect
   app.use("/", siteRoute);
 
   // app.use(function (req, res, next) {

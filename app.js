@@ -7,8 +7,9 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const cors = require("cors");
 const dbConnect = require("./src/configs/mongoDB.js");
+const passport = require("passport");
+const { log } = require("console");
 require("dotenv").config();
 
 // Serve static files from the "public" directory
@@ -18,13 +19,6 @@ hbsViewEngineConfig(app);
 
 dbConnect.connect();
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // allow to server to accept request from different origin
-    credentials: true,
-    "Access-Control-Allow-Origin": "*",
-  }),
-);
 app.use(cookieParser());
 
 // parse application/json
@@ -32,15 +26,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
-console.log("app.js: ", process.env.NODE_ENV);
+console.log(": ", process.env.NODE_ENV);
+
 // Sử dụng middleware session
 app.use(
-  session({
+session({
     secret: "Xtera123!",
     resave: true,
     saveUninitialized: true,
     cookie: {
-      maxAge: 3600000,
+      maxAge: 36000,
       sameSite: "Lax",
       // secure: false,
       // httpOnly: true,
@@ -51,7 +46,13 @@ app.use(
   }),
 );
 
+// Cấu hình Passport và sử dụng session
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(passport.authenticate("session"));
+
 app.use(logger("dev"));
+
 routes(app);
 
 module.exports = app;

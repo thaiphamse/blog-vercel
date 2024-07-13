@@ -30,11 +30,15 @@ const users = new Schema({
     default: 'user',
     required: [true, 'Role is required'],
   },
-
   status: {
     type: String,
     enum: ['active', 'inactive'],
     default: 'active',
+  },
+  googleId: {
+    type: String,
+    unique: true,
+    index: true,
   }
 }
   , {

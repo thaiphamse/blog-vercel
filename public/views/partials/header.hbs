@@ -23,7 +23,7 @@
           <li class="nav-item  dropdown profile">
             <a title="User name" href=" #" class="nav-link text-primary dropdown-toggle fw-bold" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              ThaiPham@2909
+              {{fullname}}
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
@@ -34,9 +34,11 @@
               <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
             </ul>
           </li>
-          {{/with}}
+          {{else}}
           <li class="nav-item ms-2"><a href="/auth/login" class=" btn rounded-pill text-light bg-primary">Đăng
               nhập/Đăng ký</a></li>
+          {{/with}}
+
         </ul>
       </div>
     </div>
