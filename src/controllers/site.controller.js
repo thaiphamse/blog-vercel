@@ -14,7 +14,7 @@ const getPostPage = async (req, res) => {
     res.render('post', {
         ...baseResponse,
         // toast: false,
-        title: "Bài đăng",
+        title: "Tất cả bài viết",
         user: req.user
     })
 }

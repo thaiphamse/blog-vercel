@@ -11,7 +11,6 @@
 </head>
 
 <body style="">
-    {{toast.message}}
     <div class="container p-sm-5">
         <div class="container shadow px-sm-5 py-3 col-md-12 col-xl-6 form-container">
             <!-- Login 13 - Bootstrap Brain Component -->
@@ -20,11 +19,12 @@
             </div>
             <div class=" pt-4 pb-2 ps-4 pe-4">
                 <div class="d-flex">
-                    <p class="mb-4 m-auto fw-thin fst-italic text-secondary">Đăng ký vào Technology Share để trải nghiệm đầy đủ tính năng</p>
+                    <p class="mb-4 m-auto fw-thin fst-italic text-secondary">Đăng ký vào Technology Share để trải nghiệm
+                        đầy đủ tính năng</p>
                 </div>
                 <form action="/auth/register" class="signin-form" method="POST">
                     <div class="form-group mb-3">
-                        <label class="label" for="name">Tài khoản</label>
+                        <label class="label" for="username">Tài khoản</label>
                         <input type="text" name="username" class="form-control pt-2 pb-2 mt-1"
                             placeholder="Tài khoản đăng nhập" required="">
                     </div>
@@ -34,7 +34,7 @@
                             placeholder="Mật khẩu của bạn" required="">
                     </div>
                     <div class="form-group mb-3">
-                        <label class="label" for="password">Xác nhận mật khẩu</label>
+                        <label class="label" for="">Xác nhận mật khẩu</label>
                         <input type="password" name="re-password" class="form-control  pt-2 pb-2 mt-1"
                             placeholder="Nhập lại mật khẩu" required="">
                     </div>
@@ -57,4 +57,5 @@
         </div>
     </div>
 </body>
+
 </html>

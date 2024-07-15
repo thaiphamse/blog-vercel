@@ -14,8 +14,6 @@ const users = new Schema({
   },
   email: {
     type: String,
-    index: true,
-    unique: true,
     required: [true, 'Email is required'],
     validate: { //custom validation for email
       validator: function (v) {
@@ -23,6 +21,7 @@ const users = new Schema({
       },
       message: props => `${props.value} is not a valid email!`
     },
+    default: "email@e.mail"
   },
   role: {
     type: String,
@@ -33,12 +32,10 @@ const users = new Schema({
   status: {
     type: String,
     enum: ['active', 'inactive'],
-    default: 'active',
+    default: 'inactive',
   },
   googleId: {
     type: String,
-    unique: true,
-    index: true,
   }
 }
   , {

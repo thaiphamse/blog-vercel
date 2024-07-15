@@ -35,12 +35,8 @@ session({
     resave: true,
     saveUninitialized: true,
     cookie: {
-      maxAge: 36000,
-      sameSite: "Lax",
-      // secure: false,
-      // httpOnly: true,
-      // path: '/',
-      // expires: new Date(new Date().getTime() + 86409000)
+      maxAge: 86400000, // 1d
+      sameSite: "Lax"
     },
     // 1 ngày (đơn vị tính bằng mili giây)
   }),

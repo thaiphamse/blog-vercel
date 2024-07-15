@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router()
 const userModel = require('../models/user')
 // const db = require("../models/index")
-// const jwtUtil = require('../utils/jwtUtil')
+const jwtUtil = require('../utils/jwt')
 require('dotenv').config()
 
 //Google Oauth2
@@ -27,16 +27,17 @@ passport.use(new GoogleStrategy({
             }
         )
         console.log(isExist)
-
+        let token = jwtUtil.generateToken(displayName, email)
         if (isExist) {
             //Sinh token
-            // let token = jwtUtil.generateToken(profile.displayName, profile.email)
+
             let user = {
                 fullname: displayName,
                 email,
                 avatarUrl,
                 role: isExist.role,
                 status: isExist.status,
+                tk: token
             }
             return done(null, user);
         } else {
@@ -46,18 +47,16 @@ passport.use(new GoogleStrategy({
                 email,
                 googleId,
                 role: 'user',
-                status: 'inactive'
-
+                status: 'active'
             })
             const saved = await newUser.save()
-            console.log('saved', saved)
+            // console.log('saved', saved)
             return done(null, saved)
-
         }
     }));
 
 passport.serializeUser((user, done) => {
-    // console.log(user);
+    console.log(user);
     done(null, user);
 });
 
