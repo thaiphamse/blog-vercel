@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="/assets/stylesheets/login.css">
     <title>Medium – Sign in</title>
 </head>
+<style>
+
+</style>
 
 <body style="">
     <div class="container p-sm-5">
@@ -25,7 +28,7 @@
                         năng</p>
 
                 </div>
-                <form accept="" action="/login" class="signin-form" method="POST">
+                <form accept="" action="/auth/login" class="signin-form" method="POST">
                     <div class="form-group mb-3">
                         <label class="label" for="name">Tài khoản</label>
                         <input type="text" name="username" class="form-control pt-2 pb-2 mt-1"
@@ -43,11 +46,12 @@
                 </form>
                 <p class="text-center mt-2">
                     Chưa có tài khoản?
-                    <a href="/auth/register" class="text-success fw-bold">Đăng ký ngay!</a>
+                    <a href="/auth/register" class="text-success fw-bold loading">Đăng ký ngay!</a>
                 </p>
             </div>
             <div class="container p-0 text-center">
-                <a href="/oauth2/login/federated/google" class="btn my-0 google border-dark text-dark rounded-pill">
+                <a href="/oauth2/login/federated/google "
+                    class="btn my-0 google border-dark text-dark rounded-pill loading">
                     <img src="/assets/imgs/logo_google.webp" width="26" alt="">
                     <span class="ms-2">Tiếp tục với Google</span>
                 </a>

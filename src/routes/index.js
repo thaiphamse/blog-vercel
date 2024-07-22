@@ -4,7 +4,7 @@ const authRoute = require("./auth.route.js");
 const passport = require('./passport.js')
 module.exports = (app) => {
 
-  app.use("/auth", authRoute)
+  app.use("/auth", passport)
   app.use("/oauth2", passport) //google oauth2
   app.use("/redirect", passport) //google redirect
   app.use("/", siteRoute);

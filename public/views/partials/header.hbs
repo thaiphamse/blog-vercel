@@ -2,7 +2,7 @@
 
   <nav class="navbar navbar-light fixed-top border-0 navbar-expand-md py-3 text-light">
     <div class="container">
-      <a href="/" class="navbar-brand text-light header-text-logo" style="font-size: 24px;">
+      <a href="/" class="navbar-brand text-light header-text-logo loading" style="font-size: 24px;">
         <img src="/assets/imgs/logo.png" alt="" height="25px">
         TECHSHARE
       </a>
@@ -15,7 +15,7 @@
 
       <div class="collapse navbar-collapse smooth " id="navbarCollapse">
         <ul class="navbar-nav ms-auto mb-2 mb-md-0 px-3 px-md-0 ">
-          <li class="nav-item"><a href="/post" class="nav-link text-light">Bài đăng</a></li>
+          <li class="nav-item"><a href="/post" class="nav-link text-light loading">Bài đăng</a></li>
           <li class="nav-item"><a href="#" class="nav-link text-light">Viết bài</a>
           </li>
           <li class="nav-item"><a href="#" class="nav-link text-light">Tác giả</a></li>
@@ -26,16 +26,16 @@
               {{fullname}}
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
+              <li><a class="dropdown-item " href="#">Thông tin tài khoản</a></li>
               <li><a class="dropdown-item" href="#">Bài viết của tôi</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="/auth/logout">Đăng xuất</a></li>
+              <li><a class="dropdown-item loading" href="/auth/logout">Đăng xuất</a></li>
             </ul>
           </li>
           {{else}}
-          <li class="nav-item ms-2"><a href="/auth/login" class=" btn rounded-pill text-light bg-primary">Đăng
+          <li class="nav-item ms-2 loading"><a href="/auth/login" class=" btn rounded-pill text-light bg-primary">Đăng
               nhập/Đăng ký</a></li>
           {{/with}}
 
