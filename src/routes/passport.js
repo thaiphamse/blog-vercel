@@ -5,22 +5,28 @@ const express = require('express')
 const router = express.Router()
 const baseResponse = require('../configs/base.response')
 const userModel = require('../models/user')
-// const db = require("../models/index")
 const jwtUtil = require('../utils/jwt')
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+
 require('dotenv').config()
 
 
 //Local auth
 passport.use(new LocalStrategy(
-    async function (username, password, done) {
+    async function (username, passwordRQ, done) {
         const userDb = await userModel.findOne({ username })
 
         if (!userDb)
             return done(null, false)
-        if (password !== userDb.password)
+        if (!bcrypt.compareSync(passwordRQ, userDb.password))
             return done(null, false)
+        //remove password in object
+        const { password, ...other } = { ...userDb._doc }
 
-        return done(null, userDb);
+        console.log(other)
+        return done(null, other);
 
     }
 ));
@@ -45,7 +51,6 @@ passport.use(new GoogleStrategy({
                 googleId: profile.id,
             }
         )
-        console.log(isExist)
         if (isExist) {
             //Sinh token
 
@@ -115,9 +120,11 @@ router.post('/register', async (req, res) => {
             }
         })
     }
+    const salt = bcrypt.genSaltSync(saltRounds);
+    const hash = bcrypt.hashSync(registerPassword, salt);
     let newUser = new userModel({
         username: registerUsername,
-        password: registerPassword
+        password: hash
     })
     try {
         await newUser.save()

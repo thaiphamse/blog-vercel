@@ -1,6 +1,4 @@
-const userModel = require("../models/user.js");
 const siteRoute = require("./site.route.js");
-const authRoute = require("./auth.route.js");
 const passport = require('./passport.js')
 module.exports = (app) => {
 
