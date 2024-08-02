@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link rel="stylesheet" href="/assets/stylesheets/createPost.css">
+
+<body>
+    <header class="masthead" style="background-image: url(/assets/imgs/06.jpg)">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+
+
+                    <div class="post-heading">
+                        <div id="toolbar-heading">
+                            <span class="ql-formats">
+                                <select class="ql-size"></select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-bold"></button>
+                                <button class="ql-italic"></button>
+                                <button class="ql-underline"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <select class="ql-color"></select>
+                                <select class="ql-background"></select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-script" value="sub"></button>
+                                <button class="ql-script" value="super"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-header" value="1"></button>
+                                <button class="ql-header" value="2"></button>
+                                <button class="ql-blockquote"></button>
+                                <button class="ql-code-block"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-list" value="ordered"></button>
+                                <button class="ql-list" value="bullet"></button>
+                                <button class="ql-indent" value="-1"></button>
+                                <button class="ql-indent" value="+1"></button>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-direction" value="rtl"></button>
+                                <select class="ql-align"></select>
+                            </span>
+                            <span class="ql-formats">
+                                <button class="ql-link"></button>
+                                <button class="ql-image"></button>
+                                <button class="ql-video"></button>
+                            </span>
+
+                        </div>
+                        <div id="headingEditor">
+                        </div>
+
+                        <span class="meta">Posted by
+                            <a href="#">Start Bootstrap</a>
+                            on January 31, 2020 · <span class="reading-time" title="Estimated read time">
+
+                                4 mins read </span>
+
+                        </span>
+                        <br />
+                        <span class="badge bg-primary">
+                            #tag1
+                        </span>
+                        <span class="badge bg-primary">
+                            #tag2
+                        </span>
+                        <span class="badge bg-primary">
+                            #tag3
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container post-content-edit">
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <div id="toolbar-content">
+                    <span class="ql-formats">
+                        {{!-- <select class="ql-font"></select> --}}
+                        <select class="ql-size"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-bold"></button>
+                        <button class="ql-italic"></button>
+                        <button class="ql-underline"></button>
+                        {{!-- <button class="ql-strike"></button> --}}
+                    </span>
+                    <span class="ql-formats">
+                        <select class="ql-color"></select>
+                        <select class="ql-background"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-script" value="sub"></button>
+                        <button class="ql-script" value="super"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-header" value="1"></button>
+                        <button class="ql-header" value="2"></button>
+                        <button class="ql-blockquote"></button>
+                        <button class="ql-code-block"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-list" value="ordered"></button>
+                        <button class="ql-list" value="bullet"></button>
+                        <button class="ql-indent" value="-1"></button>
+                        <button class="ql-indent" value="+1"></button>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-direction" value="rtl"></button>
+                        <select class="ql-align"></select>
+                    </span>
+                    <span class="ql-formats">
+                        <button class="ql-link"></button>
+                        <button class="ql-image"></button>
+                        <button class="ql-video"></button>
+                    </span>
+
+                </div>
+                <div id="contentEditor">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-5">
+    </footer>
+</body>\
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+<script>
+    const quill = new Quill('#contentEditor', {
+        modules: {
+            syntax: true,
+            toolbar: '#toolbar-content',
+        },
+        placeholder: "Điều chỉnh nội dung bài đăng...",
+        theme: 'snow',
+    });
+    const quill1 = new Quill('#headingEditor', {
+        modules: {
+            syntax: true,
+            toolbar: '#toolbar-heading',
+        },
+        placeholder: "Nội dung tiêu đề bài viết",
+        theme: 'snow',
+    });
+    quill1.insertText(0,
+        `"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, perspiciatis sit. 
+    Illum cupiditate sint reprehenderit eveniet sed deleniti nemo sit fugiat animi accusantium, dolore quaerat ullam cum placeat ipsam illo."`, {
+        color: '#fff',
+        italic: true,
+        bold: true
+    });
+    console.log(quill1.getContents())
+</script>
+
+</html>

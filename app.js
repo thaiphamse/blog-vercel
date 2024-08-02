@@ -9,7 +9,6 @@ const session = require("express-session");
 const bodyParser = require("body-parser");
 const dbConnect = require("./src/configs/mongoDB.js");
 const passport = require("passport");
-const { log } = require("console");
 require("dotenv").config();
 
 // Serve static files from the "public" directory
@@ -26,12 +25,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cookieParser());
-console.log(": ", process.env.NODE_ENV);
 
 // Sử dụng middleware session
 app.use(
-session({
-    secret: "Xtera123!",
+  session({
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
     cookie: {
