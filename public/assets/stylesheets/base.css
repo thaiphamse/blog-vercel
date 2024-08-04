@@ -423,7 +423,7 @@ footer {
 
 .dropdown-menu {}
 
-.bg-primary {
+.btn.bg-primary {
     background-color: var(--blue_button) !important;
 }
 

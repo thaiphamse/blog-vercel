@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <link rel="stylesheet" href="/assets/stylesheets/createPost.css">
+<link href="https://unpkg.com/quill-image-uploader@1.2.4/dist/quill.imageUploader.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
 
 <body>
     <header class="masthead" style="background-image: url(/assets/imgs/06.jpg)">
@@ -84,86 +86,66 @@
     </header>
     <main class="container post-content-edit">
         <div class="row">
-            <div class="col-8 mx-auto">
-                <div id="toolbar-content">
-                    <span class="ql-formats">
-                        {{!-- <select class="ql-font"></select> --}}
-                        <select class="ql-size"></select>
-                    </span>
-                    <span class="ql-formats">
-                        <button class="ql-bold"></button>
-                        <button class="ql-italic"></button>
-                        <button class="ql-underline"></button>
-                        {{!-- <button class="ql-strike"></button> --}}
-                    </span>
-                    <span class="ql-formats">
-                        <select class="ql-color"></select>
-                        <select class="ql-background"></select>
-                    </span>
-                    <span class="ql-formats">
-                        <button class="ql-script" value="sub"></button>
-                        <button class="ql-script" value="super"></button>
-                    </span>
-                    <span class="ql-formats">
-                        <button class="ql-header" value="1"></button>
-                        <button class="ql-header" value="2"></button>
-                        <button class="ql-blockquote"></button>
-                        <button class="ql-code-block"></button>
-                    </span>
-                    <span class="ql-formats">
-                        <button class="ql-list" value="ordered"></button>
-                        <button class="ql-list" value="bullet"></button>
-                        <button class="ql-indent" value="-1"></button>
-                        <button class="ql-indent" value="+1"></button>
-                    </span>
-                    <span class="ql-formats">
-                        <button class="ql-direction" value="rtl"></button>
-                        <select class="ql-align"></select>
-                    </span>
-                    <span class="ql-formats">
-                        <button class="ql-link"></button>
-                        <button class="ql-image"></button>
-                        <button class="ql-video"></button>
-                    </span>
+            <div class="col ">
+                <div class="card col-left">
+                    <div class="card-header bg-warning">
+                        Chỉ mục điều hướng
+                    </div>
+                    <div class="list-group">
 
+                        <a href="#" class="list-group-item list-group-item-action">#Heading 1</a>
+                        <a href="#" class="list-group-item list-group-item-action">#Heading 2</a>
+
+                    </div>
                 </div>
-                <div id="contentEditor">
+
+
+            </div>
+            <div class="col-8 col-center">
+                <div id="editor">
                 </div>
+            </div>
+            <div class="col ">
+                <div class="card bg-success col-right">
+                    <div class="card-header text-white">
+                        Hiển thị
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
+                                id="firstRadio" checked>
+                            <label class="form-check-label" for="firstRadio">Riêng tư</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
+                                id="secondRadio">
+                            <label class="form-check-label" for="secondRadio">Công khai</label>
+                        </li>
+
+                    </ul>
+                </div>
+                <form action="/post/save" id="content-form" method="POST">
+                    <input type="text" name="headingDelta" id="headingDelta" hidden>
+                    <input type="text" name="contentDelta" id="contentDelta" hidden>
+
+                    <button class="btn bg-primary text-white w-100 mt-2 save-content-btn">Lưu và xem</button>
+                </form>
+
+
             </div>
         </div>
     </main>
     <footer class="mt-5">
     </footer>
-</body>\
+</body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
-<script>
-    const quill = new Quill('#contentEditor', {
-        modules: {
-            syntax: true,
-            toolbar: '#toolbar-content',
-        },
-        placeholder: "Điều chỉnh nội dung bài đăng...",
-        theme: 'snow',
-    });
-    const quill1 = new Quill('#headingEditor', {
-        modules: {
-            syntax: true,
-            toolbar: '#toolbar-heading',
-        },
-        placeholder: "Nội dung tiêu đề bài viết",
-        theme: 'snow',
-    });
-    quill1.insertText(0,
-        `"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, perspiciatis sit. 
-    Illum cupiditate sint reprehenderit eveniet sed deleniti nemo sit fugiat animi accusantium, dolore quaerat ullam cum placeat ipsam illo."`, {
-        color: '#fff',
-        italic: true,
-        bold: true
-    });
-    console.log(quill1.getContents())
+<script src="https://unpkg.com/quill-image-uploader@1.2.4/dist/quill.imageUploader.min.js"></script>
+<script src="../../node_modules/quill-blot-formatter/dist/quill-blot-formatter.min.js">
+    Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 </script>
+<!-- After quill script includes -->
+<script src="../assets/javascripts/createPost.js"></script>
 
 </html>

@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const postController = require('../controllers/post.controller');
 const verifyMiddleware = require('../middlewares/verify')
-
-router.get('/view', postController.getPostPage);
+// [/post]
+router.get('/view/:id', postController.viewPost);
+router.post('/save', postController.savePost);
 router.get('/', postController.getCreatePostPage);
+
 
 module.exports = router

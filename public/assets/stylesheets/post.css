@@ -42,3 +42,7 @@ header.masthead .site-heading {
     background-color: #212529;
     opacity: 0.5;
 }
+
+.ql-container.ql-snow {
+    border: none !important;
+}
