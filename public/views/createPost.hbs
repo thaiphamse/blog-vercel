@@ -85,66 +85,65 @@
         </div>
     </header>
     <main class="container post-content-edit">
-        <div class="row">
-            <div class="col ">
-                <div class="card col-left">
-                    <div class="card-header bg-warning">
-                        Chỉ mục điều hướng
+        <form action="/post/save" id="content-form" method="POST">
+
+            <div class="row">
+                <div class="col ">
+                    <div class="card col-left">
+                        <div class="card-header bg-warning">
+                            Chỉ mục điều hướng
+                        </div>
+                        <div class="list-group">
+
+                            <a href="#" class="list-group-item list-group-item-action">#Heading 1</a>
+                            <a href="#" class="list-group-item list-group-item-action">#Heading 2</a>
+
+                        </div>
                     </div>
-                    <div class="list-group">
 
-                        <a href="#" class="list-group-item list-group-item-action">#Heading 1</a>
-                        <a href="#" class="list-group-item list-group-item-action">#Heading 2</a>
 
+                </div>
+                <div class="col-8 col-center">
+                    <div id="editor">
                     </div>
                 </div>
+                <div class="col ">
+                    <div class="card bg-success col-right">
+                        <div class="card-header text-white">
+                            Hiển thị
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="radio" name="visibility" value="private"
+                                    id="private" checked>
+                                <label class="form-check-label" for="private">Riêng tư</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="radio" name="visibility" value="public"
+                                    id="public">
+                                <label class="form-check-label" for="public">Công khai</label>
+                            </li>
 
-
-            </div>
-            <div class="col-8 col-center">
-                <div id="editor">
-                </div>
-            </div>
-            <div class="col ">
-                <div class="card bg-success col-right">
-                    <div class="card-header text-white">
-                        Hiển thị
+                        </ul>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
-                                id="firstRadio" checked>
-                            <label class="form-check-label" for="firstRadio">Riêng tư</label>
-                        </li>
-                        <li class="list-group-item">
-                            <input class="form-check-input me-1" type="radio" name="listGroupRadio" value=""
-                                id="secondRadio">
-                            <label class="form-check-label" for="secondRadio">Công khai</label>
-                        </li>
-
-                    </ul>
-                </div>
-                <form action="/post/save" id="content-form" method="POST">
                     <input type="text" name="headingDelta" id="headingDelta" hidden>
                     <input type="text" name="contentDelta" id="contentDelta" hidden>
-
                     <button class="btn bg-primary text-white w-100 mt-2 save-content-btn">Lưu và xem</button>
-                </form>
-
-
+                </div>
             </div>
-        </div>
+        </form>
     </main>
-    <footer class="mt-5">
+    <footer class="mt-5">1
     </footer>
 </body>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
 <script src="https://unpkg.com/quill-image-uploader@1.2.4/dist/quill.imageUploader.min.js"></script>
-<script src="../../node_modules/quill-blot-formatter/dist/quill-blot-formatter.min.js">
+<script type="text/html" src="../../node_modules/quill-blot-formatter/dist/quill-blot-formatter.min.js">
     Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 </script>
+
 <!-- After quill script includes -->
 <script src="../assets/javascripts/createPost.js"></script>
 
