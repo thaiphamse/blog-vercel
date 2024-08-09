@@ -1,5 +1,5 @@
-Quill.register("modules/imageUploader", ImageUploader);
-let quill
+Quill.register('modules/imageUpload', ImageUpload);
+var quill
 document.addEventListener("DOMContentLoaded", function () {
     const fullToolbarOptions = [
         [{ 'align': [] }],
@@ -8,10 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
         [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }],
         [{ 'indent': '-1' }, { 'indent': '+1' }],
         [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-        ["link", "image"],
+        ["link"],
+        ["image"]
     ];
 
     console.log("Dom loaded");
+    Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
+
+    // Khởi tạo Blot Formatter với các tùy chọn
 
     quill = new Quill("#editor", {
         theme: "snow",
@@ -19,34 +23,26 @@ document.addEventListener("DOMContentLoaded", function () {
             toolbar: {
                 container: fullToolbarOptions
             },
+            blotFormatter: {
+                overlay: {
+                    className: 'blot-formatter__overlay',
+                    style: {
+                        boxSizing: 'border-box',
+                        border: 'none',
+                    }
+                },
 
-            imageUploader: {
-                upload: (file) => {
-                    return new Promise((resolve, reject) => {
-                        const formData = new FormData();
-                        formData.append("image", file);
-
-                        fetch(
-                            "",
-                            {
-                                method: "POST",
-                                body: formData
-                            }
-                        )
-                            .then((response) => response.json())
-                            .then((result) => {
-                                console.log(result);
-                                resolve(result.data.url);
-                            })
-                            .catch((error) => {
-                                reject("Upload failed");
-                                console.error("Error:", error);
-                            });
-                    });
-                }
             }
         }
     });
+    quill.getModule('toolbar').addHandler('image', () => {
+        const imageUploader = new ImageUpload(quill, {
+            uploadPreset: 'vr8eratg',
+            uploadUrl: 'https://api.cloudinary.com/v1_1/disrx4gzn/image/upload'
+        });
+        imageUploader.selectLocalImage();
+    });
+
 
     const contentForm = document.getElementById('content-form')
     const saveContentBtn = document.querySelector('.save-content-btn')
@@ -54,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     saveContentBtn.addEventListener('click', (e) => {
         e.preventDefault()
         const delta = quill.getContents()
+        console.log(delta)
         contentDelta.value = JSON.stringify(delta.ops);
         contentForm.submit()
     })

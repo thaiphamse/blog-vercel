@@ -43,6 +43,8 @@ header.masthead .site-heading {
     opacity: 0.5;
 }
 
+
 .ql-container.ql-snow {
+    padding: 0 !important;
     border: none !important;
 }

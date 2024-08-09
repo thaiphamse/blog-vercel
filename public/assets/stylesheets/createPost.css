@@ -69,3 +69,20 @@ header.masthead {
     top: 80px;
     z-index: 10;
 }
+
+/* Quill */
+.ql-editor img {
+    cursor: move;
+    max-width: 100%;
+    /* Đảm bảo ảnh không vượt quá kích thước của container */
+    height: auto;
+    /* Đảm bảo tỷ lệ của ảnh không bị biến dạng */
+    resize: both;
+    /* Cho phép người dùng thay đổi kích thước ảnh */
+    overflow: auto;
+    /* Hiển thị thanh cuộn nếu cần */
+}
+
+.blot-formatter__toolbar-button {
+    display: none !important;
+}
