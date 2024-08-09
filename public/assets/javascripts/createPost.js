@@ -1,4 +1,5 @@
 Quill.register('modules/imageUpload', ImageUpload);
+Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
 var quill
 document.addEventListener("DOMContentLoaded", function () {
     const fullToolbarOptions = [
@@ -13,12 +14,20 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     console.log("Dom loaded");
-    Quill.register('modules/blotFormatter', QuillBlotFormatter.default);
+    quill1 = new Quill("#headingEditor", {
+        theme: "snow",
+        placeholder: "Tiêu đề bài viết...",
+        modules: {
+            toolbar: null
+
+        }
+    });
 
     // Khởi tạo Blot Formatter với các tùy chọn
 
     quill = new Quill("#editor", {
         theme: "snow",
+        placeholder: "Nội dung bài viết...",
         modules: {
             toolbar: {
                 container: fullToolbarOptions
@@ -47,11 +56,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const contentForm = document.getElementById('content-form')
     const saveContentBtn = document.querySelector('.save-content-btn')
     const contentDelta = document.getElementById('contentDelta')
+    const headingDelta = document.getElementById('headingDelta')
     saveContentBtn.addEventListener('click', (e) => {
         e.preventDefault()
         const delta = quill.getContents()
-        console.log(delta)
+        const heading = quill1.getContents()
+        console.log(heading)
         contentDelta.value = JSON.stringify(delta.ops);
+        headingDelta.value = JSON.stringify(heading.ops);
+
         contentForm.submit()
     })
 });

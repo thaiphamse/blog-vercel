@@ -86,3 +86,7 @@ header.masthead {
 .blot-formatter__toolbar-button {
     display: none !important;
 }
+
+.toast.uploadToast {
+    display: none !important;
+}

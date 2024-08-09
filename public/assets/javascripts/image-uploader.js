@@ -1,9 +1,9 @@
 class ImageUpload {
-    constructor(quill, options) {
+    constructor(quill, options = {}) {
         this.quill = quill;
         this.options = options;
         this.uploadPreset = this.options.uploadPreset;
-        this.uploadUrl = this.options.uploadUrl;
+        this.uploadUrl = this.options.uploadUrl; 5
         this.quill.getModule('toolbar').addHandler('image', this.selectLocalImage.bind(this));
     }
 
@@ -19,15 +19,19 @@ class ImageUpload {
                 this.uploadToCloudinary(file);
             } else {
                 console.warn('You could only upload images.');
+                alert('You could only upload images.')
             }
         };
     }
-
+    showToastNotify(file) {
+        alert(`Đang tải lên: ${file?.name} (${file.size}byte)`)
+    }
     uploadToCloudinary(file) {
         const formData = new FormData();
         formData.append('file', file);
-        console.log(this.uploadPreset)
         formData.append('upload_preset', this.uploadPreset); // Replace with your Cloudinary upload preset
+        this.showToastNotify(file)
+        // { name: "640x480.jpg", lastModified: 1719911688000, webkitRelativePath: "", size: 744777, type: "image/jpeg" }
 
         fetch(this.uploadUrl, {
             method: 'POST',
@@ -41,6 +45,7 @@ class ImageUpload {
             })
             .catch(error => {
                 console.error('Error uploading image:', error);
+                alert('Error uploading image:', error)
             });
     }
     insertToEditor(url) {
