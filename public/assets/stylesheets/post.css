@@ -5,6 +5,11 @@
     font-family: 'Cabin' !important;
 }
 
+.post-content {
+    margin-bottom: 50px;
+
+}
+
 main.wrapper {
     margin-top: 0;
 }

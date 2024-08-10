@@ -31,7 +31,6 @@ class ImageUpload {
         formData.append('file', file);
         formData.append('upload_preset', this.uploadPreset); // Replace with your Cloudinary upload preset
         this.showToastNotify(file)
-        // { name: "640x480.jpg", lastModified: 1719911688000, webkitRelativePath: "", size: 744777, type: "image/jpeg" }
 
         fetch(this.uploadUrl, {
             method: 'POST',
