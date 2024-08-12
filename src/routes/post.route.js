@@ -6,6 +6,6 @@ const verifyMiddleware = require('../middlewares/verify')
 
 router.get('/view/:id', postController.viewPost);
 router.post('/save', postController.savePost);
-router.get('/', postController.getCreatePostPage);
+router.get('/new', postController.getCreatePostPage);
 
 module.exports = router

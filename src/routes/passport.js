@@ -5,18 +5,14 @@ const express = require('express')
 const router = express.Router()
 const baseResponse = require('../configs/base.response')
 const userModel = require('../models/user.model')
-const jwtUtil = require('../utils/jwt')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-
-
 require('dotenv').config()
-
 
 //Local auth
 passport.use(new LocalStrategy(
     async function (username, passwordRQ, done) {
-        const userDb = await userModel.findOne({ username })
+        const userDb = await userModel.findOne({ username }).select('+password') // Get password
 
         if (!userDb)
             return done(null, false)
@@ -24,10 +20,7 @@ passport.use(new LocalStrategy(
             return done(null, false)
         //remove password in object
         const { password, ...other } = { ...userDb._doc }
-
-        console.log(other)
         return done(null, other);
-
     }
 ));
 
@@ -185,7 +178,6 @@ router.post('/login', function (req, res, next) {
         });
     })(req, res, next);
 });
-
 
 router.get('/logout', (req, res, next) => {
     req.logout((err) => {

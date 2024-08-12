@@ -7,7 +7,10 @@ const user = new Schema({
     type: String,
     index: true,
   },
-  password: String,
+  password: {
+    select: false,
+    type: String
+  },
   fullname: {
     type: String,
     default: 'Guest',

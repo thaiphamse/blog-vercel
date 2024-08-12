@@ -12,26 +12,25 @@ const passport = require("passport");
 const MongoStore = require('connect-mongo');
 require("dotenv").config();
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, "public")));
+
 
 hbsViewEngineConfig(app);
 
 dbConnect.connect();
-app.set('trust proxy', 1); // Ensure this is set before session middleware
+// app.set('trust proxy', 1); // Ensure this is set before session middleware
 
 // parse application/json
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false }));
+app.use(express.json());
 app.use(cookieParser());
 
 // Sử dụng middleware session với MongoDB store
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
-        resave: false,
-        saveUninitialized: false,
+        resave: true,
+        saveUninitialized: true,
         store: MongoStore.create({
             mongoUrl: `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.znj9b.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`, // URL kết nối tới MongoDB của bạn
             collectionName: 'sessions', // Tên collection trong MongoDB để lưu trữ session
@@ -39,8 +38,8 @@ app.use(
         cookie: {
             maxAge: 86400000, // 1 days
             sameSite: "Lax",
-            httpOnly: true,
-            secure: false,
+            // httpOnly: true,
+            // secure: false,
         },
     }),
 );
@@ -51,7 +50,8 @@ app.use(passport.session());
 app.use(passport.authenticate("session"));
 
 app.use(logger("dev"));
-
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, "public")));
 routes(app);
 
 module.exports = app;

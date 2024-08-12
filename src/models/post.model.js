@@ -9,9 +9,10 @@ const post = new Schema({
   },
   tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
   author: { type: Schema.Types.ObjectId, ref: 'User' },
+  topic: { type: Schema.Types.ObjectId, ref: 'Topic', require: true },
   visibility: {
     type: String,
-    enum: ['public', 'private'],
+    enum: ['public', 'private', 'draft'],
     default: 'private',
   }
 }

@@ -44,7 +44,7 @@ class ImageUpload {
             })
             .catch(error => {
                 console.error('Error uploading image:', error);
-                alert('Error uploading image:', error)
+                alert('Error uploading image! Nếu bạn đang sử dụng trình duyệt Chrome hoặc Edge để đăng ảnh, Vui lòng sử dụng trình duyệt Firefox')
             });
     }
     insertToEditor(url) {

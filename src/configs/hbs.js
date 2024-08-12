@@ -9,37 +9,41 @@ module.exports = (app) => {
   app.engine('.hbs', handlebars.engine({
     // change handlebars extension to .hbs
     extname: '.hbs',
+    runtimeOptions: {
+      allowProtoPropertiesByDefault: true,
+      allowProtoMethodsByDefault: true
+    },
     // declare helpers
     helpers: {
-      momentDay: function(date) {
+      momentDay: function (date) {
         return moment(date).format("L");
       },
-      momentTime: function(date) {
+      momentTime: function (date) {
         return moment(date).format("LLL");
       },
-      momentTimeShort: function(date) {
+      momentTimeShort: function (date) {
         return moment(date).format("LT");
       }
       ,
-      momentDateShort: function(date) {
+      momentDateShort: function (date) {
         return moment(date).format("l")
       },
-      momentDateTimeInput: function(date) {
+      momentDateTimeInput: function (date) {
         return moment(date).format("YYYY-MM-DDTHH:mm");
       },
-      ifEquals: function(arg1, arg2) {
+      ifEquals: function (arg1, arg2) {
         //convert to string to compare
         arg1 = arg1.toString();
         arg2 = arg2.toString();
         return (arg1.toUpperCase().trim() === arg2.toUpperCase().trim());
       },
-      indexing: function(index) {
+      indexing: function (index) {
         return index + 1
       },
-      json: function(context) {
+      json: function (context) {
         return JSON.stringify(context);
       },
-      vndFormat: function(amount) {
+      vndFormat: function (amount) {
         var parts = parseFloat(amount).toFixed(2).toString().split('.');
         var integerPart = parts[0];
 
@@ -62,21 +66,24 @@ module.exports = (app) => {
         return formattedInteger + ' VND';
       },
 
-      stripHtml: function(content) {
+      stripHtml: function (content) {
         return content.replace(/<(?:"[^"]*"['"]*|'[^']*'['"]*|[^'">])+>/g, '');
       }
       ,
-      equalsZero: function(number) {
+      equalsZero: function (number) {
         let formatumber = parseInt(number);
         return formatumber == 0;
       },
-      upperZero: function(number) {
+      upperZero: function (number) {
         let formatumber = parseInt(number);
         return formatumber > 0;
       },
-      lowerZero: function(number) {
+      lowerZero: function (number) {
         let formatumber = parseInt(number);
         return formatumber < 0;
+      },
+      toUpperCase: function (string) {
+        return string.toString().toUpperCase();
       },
     }
   }));

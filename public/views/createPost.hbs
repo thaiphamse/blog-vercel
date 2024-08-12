@@ -16,19 +16,19 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="post-heading">
-
-                        <div id="headingEditor">
+                        <div id="headingEditor" class="rounded">
                         </div>
-
-                        <span class="meta">Posted by
-                            <a href="#">Start Bootstrap</a>
-                            on January 31, 2020 · <span class="reading-time" title="Estimated read time">
-
-                                4 mins read </span>
-
+                        {{#if user }}
+                        <span class="meta d-block mt-2">
+                            Sẽ được đăng bởi
+                            <a href="#" class="text-white text-decoration-underline fw-bolder">
+                                {{toUpperCase user.role}}
+                            </a>
+                            {{!-- on January 31, 2020 · <span class="reading-time" title="Estimated read time">
+                                4 mins read </span> --}}
                         </span>
-                        <br />
-                        <span class="badge bg-primary">
+                        {{/if}}
+                        {{!-- <span class="badge bg-primary">
                             #tag1
                         </span>
                         <span class="badge bg-primary">
@@ -36,7 +36,7 @@
                         </span>
                         <span class="badge bg-primary">
                             #tag3
-                        </span>
+                        </span> --}}
                     </div>
 
                 </div>
@@ -48,6 +48,16 @@
 
             <div class="row">
                 <div class="col ">
+
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="floatingSelect" data-live-search="true"
+                            aria-label="Floating label select example" name="topic">
+                            {{#each topic}}
+                            <option value="{{slug}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <label for="floatingSelect">Chọn chủ đề bài viết</label>
+                    </div>
                     <div class="card col-left">
                         <div class="card-header bg-warning">
                             Chỉ mục điều hướng
@@ -57,11 +67,9 @@
                             <a href="#" class="list-group-item list-group-item-action">#Heading 2</a>
                         </div>
                     </div>
-
-
                 </div>
                 <div class="col-8 col-center">
-                    <div id="editor">
+                    <div id="editor" class="rounded-bottom">
                     </div>
                 </div>
                 <div class="col ">
@@ -80,7 +88,11 @@
                                     id="public">
                                 <label class="form-check-label" for="public">Công khai</label>
                             </li>
-
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="radio" name="visibility" value="draft"
+                                    id="draft">
+                                <label class="form-check-label" for="draft">Nháp</label>
+                            </li>
                         </ul>
                     </div>
                     <input type="text" name="headingDelta" id="headingDelta" hidden>

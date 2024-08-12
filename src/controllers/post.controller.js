@@ -1,13 +1,16 @@
 const baseResponse = require("../configs/base.response")
 const postModel = require("../models/post.model")
+const topicModel = require("../models/topic.model")
+
 const QuillDeltaToHtmlConverter = require('quill-delta-to-html').QuillDeltaToHtmlConverter;
 
 const getCreatePostPage = async (req, res, next) => {
-
+    const topic = await topicModel.find()
     return res.render("createPost", {
         ...baseResponse,
+        topic,
         user: req.user,
-        title: "Đăng bài viết",
+        title: "Tạo bài viết mới",
         footer: false
     })
 }
@@ -43,12 +46,17 @@ const viewPost = async (req, res, next) => {
 const savePost = async (req, res, next) => {
     const headingDelta = JSON.parse(req.body.headingDelta)
     const contentDelta = JSON.parse(req.body.contentDelta)
-    const visibility = req.body.visibility
+    const visibility = req.body.visibility || "private"
+    const topicSlug = req.body.topic || ""
+    const topic_id = await topicModel.findOne({
+        slug: topicSlug
+    }).select("_id")
 
     const newPost = new postModel({
         heading: headingDelta,
         content: contentDelta,
         author: req.user?._id,
+        topic: topic_id,
         visibility
     })
     try {
