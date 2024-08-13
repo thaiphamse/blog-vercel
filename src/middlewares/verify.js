@@ -2,8 +2,8 @@ const baseResponse = require('../configs/base.response');
 const userModel = require('../models/user.model')
 const isLogin = async (req, res, next) => {
     let user = await userModel.findById(req.user?._id)
-    console.log('user', user)
-    if (!user)
+
+    if (!user && !(req.session?.passport?.user))
         return res.render('login', {
             ...baseResponse,
             toast: true,

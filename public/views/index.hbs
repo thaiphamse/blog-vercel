@@ -34,7 +34,6 @@
         </div>
 
         <div class="row">
-
             <div class="col-md-6 col-lg-4 d-flex mb-3">
                 <div class="px-2 text-secondary fs-3 fw-bold">01</div>
                 <div class="p-2">
@@ -54,100 +53,6 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4 d-flex">
-                <div class="px-2 text-secondary fs-3 fw-bold">02</div>
-                <div class="p-2">
-                    <div>
-                        <img class="rounded rounded-circle" src="images/About_Leon-1.png" alt="" width="20">
-                        <small>
-                            <a class="text-dark fw-bold text-decoration-none" href="#">Fakhar Mahbub</a>
-                        </small>
-                    </div>
-                    <div class="pt-2 fs-6 fw-bold">
-                        <a href="#" class="text-dark text-decoration-none">
-                            I don't actually want to write an article
-                        </a>
-                    </div>
-                    <small>June 10. 0 min read</small>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 d-flex">
-                <div class="px-2 text-secondary fs-3 fw-bold">03</div>
-                <div class="p-2">
-                    <div>
-                        <img class="rounded rounded-circle" src="images/About_Colburn-1.png" alt="" width="20">
-                        <small>
-                            <a class="text-dark fw-bold text-decoration-none" href="#">Michelle Woo</a> in
-                            <a class="text-dark fw-bold text-decoration-none" href="#">Forge</a>
-                        </small>
-                    </div>
-                    <div class="pt-2 fs-6 fw-bold">
-                        <a href="#" class="text-dark  text-decoration-none">
-                            Do this tiny thing when you’re overwhelmed by your messy house
-                        </a>
-                    </div>
-                    <small>June 14. 5 min read</small>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 d-flex">
-                <div class="px-2 text-secondary fs-3 fw-bold">04</div>
-                <div class="p-2">
-                    <div>
-                        <img class="rounded rounded-circle" src="images/CarvellWallace.png" alt="" width="20">
-                        <small>
-                            <a class="text-dark fw-bold text-decoration-none" href="#">Cristian Zink</a> in
-                            <a class="text-dark fw-bold text-decoration-none" href="#">ITNEXT</a>
-                        </small>
-                    </div>
-                    <div class="pt-2 fs-6 fw-bold">
-                        <a href="#" class="text-dark text-decoration-none">
-                            How to use Database Sharding and Scale an ASP.NET Core Microservice
-                        </a>
-                    </div>
-                    <small>June 15. 7 min read</small>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 d-none d-lg-flex">
-                <div class="px-2 text-secondary fs-3 fw-bold">05</div>
-                <div class="p-2">
-                    <div>
-                        <img class="rounded rounded-circle" src="images/man.png" alt="" width="20">
-                        <small>
-                            <a class="text-dark fw-bold text-decoration-none" href="#">Rowan Kaver</a> in
-                            <a class="text-dark fw-bold text-decoration-none" href="#">Dodger Insider</a>
-                        </small>
-                    </div>
-                    <div class="pt-2 fs-6 fw-bold">
-                        <a href="#" class="text-dark text-decoration-none">
-                            Dodgers call up infielder Andy Burns
-                        </a>
-                    </div>
-                    <small>June 13. 8 min read</small>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 d-none d-lg-flex">
-                <div class="px-2 text-secondary fs-3 fw-bold">06</div>
-                <div class="p-2">
-                    <div>
-                        <img class="rounded rounded-circle" src="images/Level.png" alt="" width="20">
-                        <small>
-                            <a class="text-dark fw-bold text-decoration-none" href="#">Umair haque</a> in
-                            <a class="text-dark fw-bold text-decoration-none" href="#">Eudaimonia and Co</a>
-                        </small>
-                    </div>
-                    <div class="pt-2 fs-6 fw-bold">
-                        <a href="#" class="text-dark text-decoration-none">
-                            This is How Our Civilization Ends
-                        </a>
-                    </div>
-                    <small>June 16. 10 min read</small>
-                </div>
-            </div>
-
         </div>
 
     </div>
@@ -157,165 +62,50 @@
     <!--Section 3 ends here-->
     <!--Section 4-->
     <div class="container">
+        <div class="container">
+            <p>
+                <i class="far fa-check-circle"></i>
+                <strong>NEW ON MEDIUM</strong>
+            </p>
+        </div>
         <div class="row m-auto container">
             <div id="auto-post" class="container col-lg-8 order-2 order-lg-1">
 
+                {{#each newPost}}
                 <div class="row py-4">
                     <div class="col-sm-7">
                         <div class="d-flex align-items-center">
-                            <img class="rounded" src="images/About_Bina-1.png" alt="" width="25">
+                            <img class="rounded" src="{{this.author.avatarUrl}}" alt="" width="25">
                             <small class="ms-2">
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Ella Alderson</a> in
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Predict</a>
+                                <a class="text-dark fw-bold text-decoration-none" href="#">{{this.author.fullname}}</a>
+                                {{!-- <a class="text-dark fw-bold text-decoration-none" href="#">Predict</a> --}}
                             </small>
                         </div>
                         <div class="pt-2">
-                            <a href="#" class="fs-5 fw-bold text-dark text-decoration-none">
-                                This Long-Awaited Technology May Finally Change the World
-                            </a><br />
-                            <small class="d-none d-lg-block">
-                                Solid-state batteries are poised to emerge in the coming years
-                            </small>
-                        </div>
-                        <div>
-                            May 30 - 6 min read -
-                            <a href="#" class="text-dark text-decoration-none">Science</a>
-                            <button class="text-dark btn mx-2">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <a href="#">
-                            <img class="rounded" width="100%" src="images/post-1.jpeg" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="row py-4">
-                    <div class="col-sm-7">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded" src="images/About_Colburn-1.png" alt="" width="25">
-                            <small class="ms-2">
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Emma Pattee</a> in
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Elemental</a>
-                            </small>
-                        </div>
-                        <div class="pt-2">
-                            <a href="#" class="fs-5 fw-bold text-dark text-decoration-none">
-                                Anxiety Is in Your Body, Not Your Mind
-                            </a><br />
-                            <small class="d-none d-lg-block">
-                                Why you might want to stop talking about your anxiety and try this instead
-                            </small>
-                        </div>
-                        <div>
-                            Apr 6 - 7 min read -
-                            <a href="#" class="text-dark text-decoration-none">Anxiety</a>
-                            <button class="text-dark btn mx-2">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <a href="#">
-                            <img class="rounded" width="100%" src="images/post-2.jpeg" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="row py-4">
-                    <div class="col-sm-7">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded" src="images/About_Leon-1.png" alt="" width="25">
-                            <small class="ms-2">
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Shivendra Misra</a> in
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Publishous</a>
-                            </small>
-                        </div>
-                        <div class="pt-2">
-                            <a href="#" class="fs-5 fw-bold text-dark text-decoration-none">
-                                6 Brain Damaging Habits You May Want to Quit
-                            </a><br />
-                            <small class="d-none d-lg-block">
-                                Do twice as much as you should, half as well as you could
-                            </small>
-                        </div>
-                        <div>
-                            Jun 16 - 8 min read -
-                            <a href="#" class="text-dark text-decoration-none">Mental Health</a>
-                            <button class="text-dark btn mx-2">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <a href="#">
-                            <img class="rounded" width="100%" src="images/post-3.jpeg" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="row py-4">
-                    <div class="col-sm-7">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded" src="images/CarvellWallace.png" alt="" width="25">
-                            <small class="ms-2">
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Sean Kernan</a> in
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Mind Cafe</a>
-                            </small>
-                        </div>
-                        <div class="pt-2">
-                            <a href="#" class="fs-5 fw-bold text-dark text-decoration-none">
-                                You Aren’t Lazy. You Are Overstimulated.
-                            </a><br />
-                            <small class="d-none d-lg-block">
-                                Slowing your life down is the secret to getting things done.
-                            </small>
-                        </div>
-                        <div>
-                            Jun 2 - 4 min read -
-                            <a href="#" class="text-dark text-decoration-none">Life</a>
-                            <button class="text-dark btn mx-2">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <a href="#">
-                            <img class="rounded" width="100%" src="images/post-4.jpeg" alt="">
-                        </a>
-                    </div>
-                </div>
-                <div class="row py-4">
-                    <div class="col-sm-7">
-                        <div class="d-flex align-items-center">
-                            <img class="rounded" src="images/CarvellWallace.png" alt="" width="25">
-                            <small class="ms-2">
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Sean Kernan</a> in
-                                <a class="text-dark fw-bold text-decoration-none" href="#">Mind Cafe</a>
-                            </small>
-                        </div>
-                        <div class="pt-2">
-                            <a href="#" class="fs-5 fw-bold text-dark text-decoration-none">
-                                5 Signs You’re Charming and Don’t Even Know it
-                            </a><br />
-                            <small class="d-none d-lg-block">
-                                The path to charm is already complete for many of you and available to the rest.
-                            </small>
-                        </div>
-                        <div>
-                            Jun 3 - 4 min read -
-                            <a href="#" class="text-dark text-decoration-none">Life</a>
-                            <button class="text-dark btn mx-2">
-                                <i class="far fa-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <a href="#">
-                            <img class="rounded" width="100%" src="images/post-5.jpeg" alt="">
-                        </a>
-                    </div>
-                </div>
 
+                            <a href="#" class="fs-5 fw-bold text-dark text-decoration-none">
+                                {{{this.heading}}}
+                            </a><br />
+                            {{!-- <small class="d-block text-truncate" style="max-width: 100%; max-height: 20px">
+                                {{{this.content}}}
+                            </small> --}}
+                        </div>
+                        <div>
+                            {{momentDay createdAt}} - <i>{{momentRelative createdAt}}</i> - 6 min read -
+                            <a href="#" class="text-dark text-decoration-underline"
+                                title="{{this.topic.[vi-description]}}">{{this.topic.name}}</a>
+                            <button class="text-dark btn mx-2">
+                                <i class="far fa-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <a href="/post/view/{{this._id}}">
+                            <img class="rounded" width="100%" src="{{this.thumnail}}" alt="">
+                        </a>
+                    </div>
+                </div>
+                {{/each}}
             </div>
 
             <div class="col-lg-4 order-1 order-lg-2 bg-light">

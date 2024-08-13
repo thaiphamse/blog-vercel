@@ -23,8 +23,10 @@ module.exports = (app) => {
       },
       momentTimeShort: function (date) {
         return moment(date).format("LT");
-      }
-      ,
+      },
+      momentRelative: function (timestamps) {
+        return moment(timestamps, "YYYYMMDD").fromNow();
+      },
       momentDateShort: function (date) {
         return moment(date).format("l")
       },
@@ -58,7 +60,7 @@ module.exports = (app) => {
           }
           formattedInteger += integerArray[i];
         }
-
+        
         // Đảo ngược lại chuỗi phần nguyên để có định dạng đúng
         formattedInteger = formattedInteger.split('').reverse().join('');
 

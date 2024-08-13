@@ -26,17 +26,13 @@ const viewPost = async (req, res, next) => {
 
             const contentDeltaOps = postDb.content
             const headingDeltaOps = postDb.heading
-            const content = new QuillDeltaToHtmlConverter(contentDeltaOps, {});
-            const heading = new QuillDeltaToHtmlConverter(headingDeltaOps, {});
-            const contentHtml = content.convert();
-            const headingHtml = heading.convert()
 
             return res.render("post", {
                 ...baseResponse,
                 user: req.user,
                 title: `${postDb._id}`,
-                content: contentHtml,
-                heading: headingHtml
+                content: contentDeltaOps,
+                heading: headingDeltaOps
             })
         } catch (error) {
             next(error)

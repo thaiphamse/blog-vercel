@@ -50,13 +50,13 @@
                 <div class="col ">
 
                     <div class="form-floating mb-2">
-                        <select class="form-select" id="floatingSelect" data-live-search="true"
+                        <select class="form-select" id="topicSelect" data-live-search="true"
                             aria-label="Floating label select example" name="topic">
                             {{#each topic}}
-                            <option value="{{slug}}">{{name}}</option>
+                            <option value="{{slug}}" title="{{vi-description}}">{{name}}</option>
                             {{/each}}
                         </select>
-                        <label for="floatingSelect">Chọn chủ đề bài viết</label>
+                        <label for="topicSelect">Chọn chủ đề</label>
                     </div>
                     <div class="card col-left">
                         <div class="card-header bg-warning">
@@ -79,8 +79,13 @@
                         </div>
                         <ul class="list-group">
                             <li class="list-group-item">
+                                <input class="form-check-input me-1" type="radio" name="visibility" value="draft"
+                                    id="draft" checked>
+                                <label class="form-check-label" for="draft">Nháp</label>
+                            </li>
+                            <li class="list-group-item">
                                 <input class="form-check-input me-1" type="radio" name="visibility" value="private"
-                                    id="private" checked>
+                                    id="private">
                                 <label class="form-check-label" for="private">Riêng tư</label>
                             </li>
                             <li class="list-group-item">
@@ -88,11 +93,7 @@
                                     id="public">
                                 <label class="form-check-label" for="public">Công khai</label>
                             </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input me-1" type="radio" name="visibility" value="draft"
-                                    id="draft">
-                                <label class="form-check-label" for="draft">Nháp</label>
-                            </li>
+
                         </ul>
                     </div>
                     <input type="text" name="headingDelta" id="headingDelta" hidden>

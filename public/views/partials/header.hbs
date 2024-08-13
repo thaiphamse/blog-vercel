@@ -26,14 +26,25 @@
                     {{/with}} --}}
                     <li class="nav-item"><a href="#" class="nav-link text-light loading">Tác giả</a></li>
                     {{#with user}}
-                    <li class="nav-item  dropdown profile">
+                    <li class="nav-item dropdown profile">
                         <a title="User name" href=" #" class="nav-link text-primary dropdown-toggle fw-bold"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {{fullname}}
+                            <img src="{{avatarUrl}}" alt="avatar" class="header-avatar">
                         </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item " href="#">Thông tin tài khoản</a></li>
-                            <li><a class="dropdown-item" href="#">Bài viết của tôi</a></li>
+                        <ul class="dropdown-menu profile-menu">
+                            <li>
+                                <div class="dropdown-item text-center" href="#">
+                                    <p class="fw-bold m-0"> {{fullname}}</p>
+                                    <p class="fst-italic m-0"> {{email}}</p>
+                                    <span class="badge rounded-pill text-bg-primary">{{role}}</span>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item " href="/profile">Thông tin tài khoản</a></li>
+                            <li><a class="dropdown-item" href="/me/post">Bài viết của tôi</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

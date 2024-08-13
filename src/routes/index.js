@@ -8,7 +8,7 @@ module.exports = (app) => {
   app.use("/auth", passport)
   app.use("/oauth2", passport) //google oauth2
   app.use("/redirect", passport) //google redirect
-  app.use("/post", postRoute); //google redirect
+  app.use("/post", postRoute);
   app.use("/api/v1", apiRoute);
   app.use("/", siteRoute);
 

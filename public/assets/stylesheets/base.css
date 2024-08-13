@@ -309,6 +309,10 @@ body {
     color: var(--blue_button);
 }
 
+.profile-menu {
+    transform: translateX(-35%);
+}
+
 /*--------------------------------------------------------------
   # Icons list page
   --------------------------------------------------------------*/
@@ -447,6 +451,14 @@ footer {
     color: var(--orange_color) !important;
 }
 
+.navbar-nav {
+    line-height: 30px;
+}
+
+.header-avatar {
+    border-radius: 50%;
+    height: 30px;
+}
 
 .toast-container {
     margin-top: 80px;
