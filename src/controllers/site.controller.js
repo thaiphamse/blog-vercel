@@ -1,6 +1,8 @@
 const baseResponse = require("../configs/base.response")
 const postModel = require("../models/post.model")
+const topicModel = require("../models/topic.model")
 const getIndexPage = async (req, res) => {
+    const topics = await topicModel.find()
     const newPost = await postModel.find({
         visibility: "public"
     }).populate("author topic").sort({ createdAt: "desc" })
@@ -9,7 +11,8 @@ const getIndexPage = async (req, res) => {
         // toast: false,
         title: "Trang chủ",
         user: req.user,
-        newPost
+        newPost,
+        topics
     })
 }
 

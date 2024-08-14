@@ -2,8 +2,6 @@ const baseResponse = require("../configs/base.response")
 const postModel = require("../models/post.model")
 const topicModel = require("../models/topic.model")
 
-const QuillDeltaToHtmlConverter = require('quill-delta-to-html').QuillDeltaToHtmlConverter;
-
 const getCreatePostPage = async (req, res, next) => {
     const topic = await topicModel.find()
     return res.render("createPost", {
@@ -14,7 +12,44 @@ const getCreatePostPage = async (req, res, next) => {
         footer: false
     })
 }
+const editPostPage = async (req, res, next) => {
+    const idParams = req.params?.id;//idPost
+    const userId = req.user ? req.user._id : null;
 
+    let post;
+    try {
+        post = await postModel.findOne({
+            _id: idParams,
+            author: userId
+        })
+        if (!post) {
+            return res.render("error", {
+                ...baseResponse,
+                toast: true,
+                user: req.user,
+                toast: { // Thông báo khi load vào trang
+                    type: 'success',
+                    title: 'Thông báo',
+                    message: 'Bạn không thể chỉnh sửa bài viết của người khác',
+                },
+                footer: false
+            })
+        }
+    } catch (error) {
+        console.log(error);
+
+    }
+
+    const topic = await topicModel.find()
+    return res.render("createPost", {
+        ...baseResponse,
+        topic,
+        user: req.user,
+        title: "Chỉnh sửa bài viết",
+        footer: false,
+        post
+    })
+}
 const viewPost = async (req, res, next) => {
     const idQuery = req.params?.id;//idPost
     const userId = req.user ? req.user._id : null;
@@ -47,10 +82,11 @@ const viewPost = async (req, res, next) => {
                 return res.render("error", {
                     ...baseResponse,
                     toast: true,
+                    user: req.user,
                     toast: { // Thông báo khi load vào trang
                         type: 'success',
                         title: 'Thông báo',
-                        message: 'Bạn không thể xem bài viết!',
+                        message: 'Không thể xem bài viết',
                     },
                     footer: false
                 })
@@ -73,12 +109,26 @@ const viewPost = async (req, res, next) => {
 const savePost = async (req, res, next) => {
     const headingDelta = JSON.parse(req.body.headingDelta)
     const contentDelta = JSON.parse(req.body.contentDelta)
+    const postIdEdit = req.body.postId
     const visibility = req.body.visibility || "private"
     const topicSlug = req.body.topic || ""
     const topic_id = await topicModel.findOne({
         slug: topicSlug
     }).select("_id")
-
+    // Edit post
+    if (postIdEdit) {
+        postModel.findByIdAndUpdate(postIdEdit, {
+            heading: headingDelta,
+            content: contentDelta,
+            topic: topic_id,
+            visibility
+        })
+            .then(data => res.redirect(`/post/view/${data._id}`))
+            .catch(error => {
+                console.log(error)
+            })
+        return
+    }
     const newPost = new postModel({
         heading: headingDelta,
         content: contentDelta,
@@ -96,5 +146,6 @@ const savePost = async (req, res, next) => {
 module.exports = {
     getCreatePostPage,
     viewPost,
-    savePost
+    savePost,
+    editPostPage
 }

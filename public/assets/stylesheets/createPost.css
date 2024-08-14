@@ -62,14 +62,13 @@ header.masthead {
     box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
 }
 
-.col-left,
+/* .col-left,
 .col-right {
     position: -webkit-sticky;
-    /* Safari */
     position: sticky;
     top: 80px;
     z-index: 10;
-}
+} */
 
 /* Quill */
 .ql-editor img {

@@ -16,7 +16,7 @@
                     <a href="#" class="fs-5 my-3 btn rounded-pill border border-dark">Start Writing</a>
                 </div>
                 <div class="col d-none d-lg-block text-center">
-                    <img class="img-fluid pt-3" width="80%" src="#" alt="">
+                    <img class="img-fluid pt-3" width="80%" src="#" alt="" loading="lazy">
                 </div>
             </div>
         </div>
@@ -36,7 +36,8 @@
                 <div class="px-2 text-secondary fs-3 fw-bold">01</div>
                 <div class="p-2">
                     <div>
-                        <img class="rounded rounded-circle" src="images/DevonPrice_1DevonPrice.png" alt="" width="20">
+                        <img loading="lazy" class="rounded rounded-circle" src="images/DevonPrice_1DevonPrice.png"
+                            alt="" width="20">
                         <small>
                             <a class="text-dark fw-bold text-decoration-none" href="#">Frank Andrade</a> in
                             <a class="text-dark fw-bold text-decoration-none" href="#">Towards Data Science</a>
@@ -54,9 +55,6 @@
         </div>
 
     </div>
-
-
-
     <!--Section 3 ends here-->
     <!--Section 4-->
     <div class="container px-0">
@@ -71,7 +69,7 @@
                 <div class="row py-4 px-2">
                     <div class="col-sm-7">
                         <div class="d-flex align-items-center">
-                            <img class="rounded" src="{{this.author.avatarUrl}}" alt="" width="25">
+                            <img class="rounded" src="{{this.author.avatarUrl}}" alt="" width="25" loading="lazy">
                             <small class="ms-2">
                                 <a class="text-dark fw-bold text-decoration-none" href="#">{{this.author.fullname}}</a>
                                 {{!-- <a class="text-dark fw-bold text-decoration-none" href="#">Predict</a> --}}
@@ -86,7 +84,7 @@
                                 {{{this.content}}}
                             </small> --}}
                         </div>
-                        <div>
+                        <div class="post-info">
                             {{momentDay createdAt}} - <i>{{momentRelative createdAt}}</i> - 6 min read -
                             <a href="#" class="text-dark text-decoration-underline"
                                 title="{{this.topic.[vi-description]}}">{{this.topic.name}}</a>
@@ -97,7 +95,7 @@
                     </div>
                     <div class="col-sm-5">
                         <a href="/post/view/{{this._id}}">
-                            <img class="rounded" width="100%" src="{{this.thumnail}}" alt="">
+                            <img class="rounded" width="100%" src="{{this.thumnail}}" alt="" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -110,15 +108,11 @@
                         DISCOVER MORE OF WHAT MATTERS TO YOU
                     </div>
                     <div class="py-3">
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Self</a>
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Relationships</a>
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Data Science</a>
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Programming</a>
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Productivity</a>
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Javascript</a>
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Machine Learning</a>
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Politics</a>
-                        <a href="#" class="btn rounded-pill btn-warning m-1">Health</a>
+                        {{#each topics}}
+                        <a href="#" class="btn rounded-pill btn-warning m-1">{{{this.name}}}</a>
+
+                        {{/each}}
+
                     </div>
                 </div>
             </div>

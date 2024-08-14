@@ -7,3 +7,7 @@
     background-color: #f3f7ec;
     color: var(--blue_button);
 }
+
+.post-info {
+    font-size: 13px;
+}
