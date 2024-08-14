@@ -17,13 +17,44 @@ const getCreatePostPage = async (req, res, next) => {
 
 const viewPost = async (req, res, next) => {
     const idQuery = req.params?.id;//idPost
+    const userId = req.user ? req.user._id : null;
+    console.log(userId)
     if (idQuery) {
-        console.log(idQuery)
         try {
-            const postDb = await postModel.findById(idQuery).
+            // Tracking views of post
+            postModel.findByIdAndUpdate(idQuery, {
+                $inc: { //increase view
+                    views: 1
+                }
+            },
+                {
+                    new: true
+                })
+                .then(post => {
+                    console.log('Views increase ', post.views, ' by: ', userId);
+                })
+                .catch(err => console.error(err));
+            //Get post info
+            const postDb = await postModel.findOne({
+                _id: idQuery,
+                $or: [
+                    { visibility: 'public' }, // Bài viết công khai
+                    { visibility: { $ne: 'public' }, author: userId } // Bài viết không công khai và tác giả là người dùng hiện tại
+                ]
+            }).
                 populate([{ path: 'author', select: "username fullname email role" }])
-            console.log(postDb)
-
+            if (!postDb) {
+                return res.render("error", {
+                    ...baseResponse,
+                    toast: true,
+                    toast: { // Thông báo khi load vào trang
+                        type: 'success',
+                        title: 'Thông báo',
+                        message: 'Bạn không thể xem bài viết!',
+                    },
+                    footer: false
+                })
+            }
             const contentDeltaOps = postDb.content
             const headingDeltaOps = postDb.heading
 

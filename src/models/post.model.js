@@ -18,6 +18,15 @@ const post = new Schema({
   tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
   author: { type: Schema.Types.ObjectId, ref: 'User' },
   topic: { type: Schema.Types.ObjectId, ref: 'Topic', require: true },
+  views: { type: Number, default: 0 }, // Số lượt xem
+  likes: { type: Number, default: 0 }, // Số lượt thích
+  comments: [{
+    userId: { type: Schema.Types.ObjectId, ref: 'User' },
+    comment: String,
+    commentMedia: String,
+    createdAt: { type: Date, default: Date.now },
+    updatedAt: { type: Date, default: Date.now }
+  }], // Mảng chứa các bình luận
   visibility: {
     type: String,
     enum: ['public', 'private', 'draft'],

@@ -422,6 +422,8 @@ footer {
 
 .navbar {
     min-height: 70px;
+    transition: top 0.18s ease-out;
+    /* Thêm transition */
 }
 
 

@@ -22,3 +22,33 @@ window.addEventListener('pageshow', function () {
     overlay.style.display = 'none';
 });
 
+let lastScrollTop = 0;
+const header = document.querySelector('.header');
+const hideThreshold = 100; // Đoạn cuộn xuống để ẩn header
+const revealThreshold = 100; // Đoạn cuộn lên để hiện lại header
+let scrollDownDistance = 0;
+let scrollUpDistance = 0;
+
+window.addEventListener('scroll', function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+        // Cuộn xuống
+        scrollDownDistance += scrollTop - lastScrollTop;
+        scrollUpDistance = 0; // Reset khoảng cách cuộn lên khi cuộn xuống
+
+        if (scrollDownDistance >= hideThreshold) {
+            header.style.top = '-80px'; // Ẩn header sau khi cuộn xuống đủ đoạn
+        }
+    } else {
+        // Cuộn lên
+        // Cuộn lên
+        if (scrollTop === 0) {
+            header.style.top = '0'; // Hiện lại header khi cuộn lên đầu trang
+        }
+    }
+
+    lastScrollTop = scrollTop;
+});
+
+

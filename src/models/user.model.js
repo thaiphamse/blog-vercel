@@ -39,7 +39,12 @@ const user = new Schema({
   },
   googleId: {
     type: String,
-  }
+  },
+  avatarUrl: {
+    type: String,
+    default: "https://res.cloudinary.com/disrx4gzn/image/upload/v1723609710/pbfpxc2zslbhrq7h7xky.jpg"
+  },
+  followingPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }]
 }
   , {
     timestamps: true,

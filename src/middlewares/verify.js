@@ -3,7 +3,7 @@ const userModel = require('../models/user.model')
 const isLogin = async (req, res, next) => {
     let user = await userModel.findById(req.user?._id)
 
-    if (!user && !(req.session?.passport?.user))
+    if (!user && !(req.session?.passport?.user)) {
         return res.render('login', {
             ...baseResponse,
             toast: true,
@@ -13,6 +13,7 @@ const isLogin = async (req, res, next) => {
                 message: 'Vui lòng đăng nhập',
             }
         });
+    }
     console.log('user', user)
     next()
 }

@@ -62,7 +62,8 @@ passport.use(new GoogleStrategy({
                 email,
                 googleId,
                 role: 'user',
-                status: 'active'
+                status: 'active',
+                avatarUrl
             })
             const saved = await newUser.save()
             // console.log('saved', saved)
@@ -71,7 +72,6 @@ passport.use(new GoogleStrategy({
     }));
 
 passport.serializeUser((user, done) => {
-    console.log(user);
     done(null, user);
 });
 
@@ -173,7 +173,7 @@ router.post('/login', function (req, res, next) {
         req.logIn(user, function (err) {
             // Nếu có lỗi xảy ra trong quá trình đăng nhập
             if (err) { return next(err); }
-            // Nếu đăng nhập thành công, chuyển hướng về trang chủ
+            // Nếu đăng nhập thành công
             return res.redirect('/');
         });
     })(req, res, next);

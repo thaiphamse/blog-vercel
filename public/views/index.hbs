@@ -26,12 +26,10 @@
     <!--Section 3 starts here-->
     <div class="container py-5">
 
-        <div class="container">
-            <p>
-                <i class="far fa-check-circle"></i>
-                <strong>TRENDING ON MEDIUM</strong>
-            </p>
-        </div>
+        <p>
+            <i class="far fa-check-circle"></i>
+            <strong>TRENDING ON MEDIUM</strong>
+        </p>
 
         <div class="row">
             <div class="col-md-6 col-lg-4 d-flex mb-3">
@@ -61,18 +59,16 @@
 
     <!--Section 3 ends here-->
     <!--Section 4-->
-    <div class="container">
-        <div class="container">
-            <p>
-                <i class="far fa-check-circle"></i>
-                <strong>NEW ON MEDIUM</strong>
-            </p>
-        </div>
-        <div class="row m-auto container">
-            <div id="auto-post" class="container col-lg-8 order-2 order-lg-1">
+    <div class="container px-0">
 
+        <div class="row m-auto">
+            <div id="auto-post" class="col-lg-8 order-2 order-lg-1">
+                <p class="my-0">
+                    <i class="far fa-check-circle"></i>
+                    <strong>NEW ON MEDIUM</strong>
+                </p>
                 {{#each newPost}}
-                <div class="row py-4">
+                <div class="row py-4 px-2">
                     <div class="col-sm-7">
                         <div class="d-flex align-items-center">
                             <img class="rounded" src="{{this.author.avatarUrl}}" alt="" width="25">
@@ -83,7 +79,7 @@
                         </div>
                         <div class="pt-2">
 
-                            <a href="#" class="fs-5 fw-bold text-dark text-decoration-none">
+                            <a href="/post/view/{{this._id}}" class="fs-5 fw-bold text-dark text-decoration-none">
                                 {{{this.heading}}}
                             </a><br />
                             {{!-- <small class="d-block text-truncate" style="max-width: 100%; max-height: 20px">
@@ -110,7 +106,7 @@
 
             <div class="col-lg-4 order-1 order-lg-2 bg-light">
                 <div class="sticky-lg-top py-2">
-                    <div class="fs-5 px-2">
+                    <div class="fs-5">
                         DISCOVER MORE OF WHAT MATTERS TO YOU
                     </div>
                     <div class="py-3">
