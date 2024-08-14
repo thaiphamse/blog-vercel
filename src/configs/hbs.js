@@ -35,9 +35,9 @@ module.exports = (app) => {
       },
       ifEquals: function (arg1, arg2) {
         //convert to string to compare
-        arg1 = arg1.toString();
-        arg2 = arg2.toString();
-        return (arg1.toUpperCase().trim() === arg2.toUpperCase().trim());
+        arg1 = arg1?.toString();
+        arg2 = arg2?.toString();
+        return (arg1?.toUpperCase().trim() === arg2?.toUpperCase().trim());
       },
       indexing: function (index) {
         return index + 1
@@ -60,7 +60,7 @@ module.exports = (app) => {
           }
           formattedInteger += integerArray[i];
         }
-        
+
         // Đảo ngược lại chuỗi phần nguyên để có định dạng đúng
         formattedInteger = formattedInteger.split('').reverse().join('');
 
