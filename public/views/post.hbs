@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/assets/stylesheets/post.css">
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+
+<header class="masthead" style="background-image: url(/assets/imgs/06.jpg)">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto p-md-0 p-ld-0">
+                <div class="post-heading">
+                    <div class="headingEditor">{{{heading}}}</div>
+                    <span class="meta">Posted by
+                        <a href="#">Start Bootstrap</a>
+                        on January 31, 2020 · <span class="reading-time" title="Estimated read time">
+                            4 mins read </span>
+                    </span>
+                    <br />
+                    <span class="badge bg-primary">
+                        #tag1
+                    </span>
+                    <span class="badge bg-primary">
+                        #tag2
+                    </span>
+                    <span class="badge bg-primary">
+                        #tag3
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container post-content">
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto p-lg-0 p-md-0">
+            <div class="editor">
+                {{{content}}}
+            </div>
+        </div>
+    </div>
+</div>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script defer src="/assets/javascripts/post.js"></script>

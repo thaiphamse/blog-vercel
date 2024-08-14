@@ -1,29 +1,64 @@
 <header>
-  <nav class="navbar  navbar-light navbar-expand-md py-3 border-bottom">
-    <div class="container">
-      <a href="#" class="navbar-brand text-primary " style="font-size: 24px;">
-        <img src="/assets/imgs/logo.png" alt="" height="25px">
-        TECHSHARE
-      </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle Navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-light fixed-top border-0 navbar-expand-md py-3 text-light header">
+        <div class="container">
+            <a href="/" class="navbar-brand text-light header-text-logo loading" style="font-size: 24px;">
+                <img src="/assets/imgs/logo.png" alt="" height="25px">
+                TECHSHARE
+            </a>
 
-      <div class="collapse navbar-collapse smooth " id="navbarCollapse">
-        <ul class="navbar-nav ms-auto mb-2 mb-md-0 px-3 px-md-0">
-          <li class="nav-item"><a href="#" class="nav-link text-dark text-primary">Our Story</a></li>
-          <li class="nav-item"><a href="#" class="nav-link text-dark text-primary">Membership</a>
-          </li>
-          <li class="nav-item"><a href="#" class="nav-link text-dark text-primary">Write</a></li>
-          <li class="nav-item">
-            <a href="#" class="nav-link text-primary">Tài khoản</a>
-          </li>
-          <li class="nav-item"><a href="#" class="nav-link btn rounded-pill text-light bg-primary">Đăng
-              nhập/Đăng ký</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <button class="navbar-toggler border border-0 bars-icon" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
+                aria-label="Toggle Navigation">
+                <ion-icon name="menu-outline" class="text-white"></ion-icon>
+            </button>
+
+            <div class="collapse navbar-collapse smooth bg-lg-light" id="navbarCollapse">
+                <ul class="navbar-nav ms-auto mb-2 mb-md-0 px-3 px-md-0 ">
+                    <li class="nav-item"><a href="/post/view" class="nav-link text-light loading">Bài đăng</a></li>
+                    {{!-- Check role admin --}}
+
+                    {{!-- {{#with user}}
+                    {{#if (ifEquals role "admin")}} --}}
+                    <li class="nav-item"><a href="/post/new" class="nav-link text-light loading">Viết bài</a>
+                    </li>
+                    {{!-- {{/if}}
+                    {{/with}} --}}
+                    <li class="nav-item"><a href="#" class="nav-link text-light loading">Tác giả</a></li>
+                    {{#with user}}
+                    <li class="nav-item dropdown profile">
+                        <a title="User name" href=" #" class="nav-link text-primary dropdown-toggle fw-bold"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="{{avatarUrl}}" alt="avatar" class="header-avatar">
+                        </a>
+                        <ul class="dropdown-menu profile-menu">
+                            <li>
+                                <div class="dropdown-item text-center" href="#">
+                                    <p class="fw-bold m-0"> {{fullname}}</p>
+                                    <p class="fst-italic m-0"> {{email}}</p>
+                                    <span class="badge rounded-pill text-bg-primary">{{role}}</span>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item " href="/profile">Thông tin tài khoản</a></li>
+                            <li><a class="dropdown-item" href="/me/post">Bài viết của tôi</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item loading" href="/auth/logout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    {{else}}
+                    <li class="nav-item ms-2 loading"><a href="/auth/login"
+                            class=" btn rounded-pill text-light bg-primary">Đăng
+                            nhập/Đăng ký</a></li>
+                    {{/with}}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
 </header>

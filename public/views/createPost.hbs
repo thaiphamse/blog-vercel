@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<link rel="stylesheet" href="/assets/stylesheets/createPost.css">
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
+
+<body>
+
+    <header class="masthead" style="background-image: url(/assets/imgs/06.jpg)">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="post-heading">
+                        <div id="headingEditor" class="rounded">
+                            {{#if post}}
+                            {{{post.heading}}}
+                            {{/if}}
+                        </div>
+                        {{#if user }}
+                        {{#unless post}}
+                        <span class="meta d-block mt-2">
+                            Sẽ được đăng bởi
+                            <a href="#" class="text-white text-decoration-underline fw-bolder">
+                                {{toUpperCase user.fullname}}
+                            </a>
+                            {{!-- on January 31, 2020 · <span class="reading-time" title="Estimated read time">
+                                4 mins read </span> --}}
+                        </span>
+                        {{else}}
+                        <span class="meta d-block mt-2">
+                            Được đăng bởi
+                            <a href="#" class="text-white text-decoration-underline fw-bolder">
+                                {{toUpperCase user.fullname}}
+                            </a>
+                            {{!-- on January 31, 2020 · <span class="reading-time" title="Estimated read time">
+                                4 mins read </span> --}}
+                        </span>
+                        {{/unless}}
+                        {{/if}}
+                        {{!-- <span class="badge bg-primary">
+                            #tag1
+                        </span>
+                        <span class="badge bg-primary">
+                            #tag2
+                        </span>
+                        <span class="badge bg-primary">
+                            #tag3
+                        </span> --}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container post-content-edit">
+        <form action="/post/save" id="content-form" method="POST">
+            <div class="row">
+                <div class="col ">
+                    <div class="form-floating mb-2">
+                        <select class="form-select" id="topicSelect" data-live-search="true"
+                            aria-label="Floating label select example" name="topic">
+                            {{#each topic}}
+                            <option value="{{slug}}" title="{{vi-description}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        <label for="topicSelect">Chọn chủ đề</label>
+                    </div>
+                    <div class="card col-left">
+                        <div class="card-header bg-warning">
+                            Chỉ mục điều hướng
+                        </div>
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">#Heading 1</a>
+                            <a href="#" class="list-group-item list-group-item-action">#Heading 2</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 col-center">
+                    <div id="editor" class="rounded-bottom">
+                        {{#if post}}
+                        {{{post.content}}}
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="col ">
+                    <div class="card bg-success col-right">
+
+                        <div class="card-header text-white">
+                            Hiển thị
+                        </div>
+                        <ul class="list-group">
+
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="radio" name="visibility" value="draft"
+                                    id="draft" {{#if (ifEquals post.visibility "draft" )}} checked{{/if}}>
+                                <label class="form-check-label" for="draft">Nháp</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="radio" name="visibility" value="private"
+                                    id="private" {{#if (ifEquals post.visibility "private" )}} checked{{/if}}>
+                                <label class="form-check-label" for="private">Riêng tư</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input class="form-check-input me-1" type="radio" name="visibility" value="public"
+                                    id="public" {{#if (ifEquals post.visibility "public" )}} checked{{/if}}>
+                                <label class="form-check-label" for="public">Công khai</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <button class="mt-2 btn bg-primary text-white w-100 save-content-btn">Lưu và xem</button>
+                    <input type="text" name="headingDelta" id="headingDelta" hidden>
+                    <input type="text" name="contentDelta" id="contentDelta" hidden>
+                    <input type="text" name="postId" id="postId" hidden value={{post._id}}>
+
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <footer class="mt-5">1
+    </footer>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill-blot-formatter/dist/quill-blot-formatter.min.js"></script>
+
+<script src="https://upload-widget.cloudinary.com/latest/global/all.js" type="text/javascript"></script>
+
+<script src="/assets/javascripts/image-uploader.js"></script>
+<!-- After quill script includes -->
+<script src="/assets/javascripts/createPost.js">
+</script>
+
+</html>

@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+
+.post-heading,
+.post-content {
+    font-family: 'Cabin' !important;
+}
+
+main.wrapper {
+    margin-top: 0;
+}
+
+.post-heading,
+header.masthead .site-heading {
+    padding: 200px 0;
+    color: white;
+}
+
+.overplay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #212529;
+    opacity: 0.5;
+}
+
+.header-text-logo,
+.nav-link {
+    color: #fff !important;
+}
+
+#toolbar-heading {
+    background-color: #ffff;
+}
+
+header.masthead {
+    margin-bottom: 50px;
+    background: no-repeat center center;
+    background-color: rgba(0, 0, 0, 0);
+    background-attachment: scroll;
+    background-image: none;
+    background-size: auto;
+    background-color: #6c757d;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover;
+}
+
+.ql-container {
+    background-color: #fff;
+    font-size: 16px;
+}
+
+.ql-toolbar {
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 60px;
+    z-index: 10;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+
+/* .col-left,
+.col-right {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+} */
+
+/* Quill */
+.ql-editor img {
+    cursor: move;
+    max-width: 100%;
+    /* Đảm bảo ảnh không vượt quá kích thước của container */
+    height: auto;
+    /* Đảm bảo tỷ lệ của ảnh không bị biến dạng */
+    resize: both;
+    /* Cho phép người dùng thay đổi kích thước ảnh */
+    overflow: auto;
+    /* Hiển thị thanh cuộn nếu cần */
+}
+
+.blot-formatter__toolbar-button {
+    display: none !important;
+}
+
+.ql-toolbar {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+
+}
+
+.toast.uploadToast {
+    display: none !important;
+}
