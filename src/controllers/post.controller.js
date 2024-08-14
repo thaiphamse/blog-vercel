@@ -77,7 +77,10 @@ const viewPost = async (req, res, next) => {
                     { visibility: { $ne: 'public' }, author: userId } // Bài viết không công khai và tác giả là người dùng hiện tại
                 ]
             }).
-                populate([{ path: 'author', select: "username fullname email role" }])
+                populate([
+                    { path: 'author', select: "_id username fullname email role" },
+                    { path: 'topic', select: "_id name vi-description" }
+                ])
             if (!postDb) {
                 return res.render("error", {
                     ...baseResponse,
@@ -91,15 +94,12 @@ const viewPost = async (req, res, next) => {
                     footer: false
                 })
             }
-            const contentDeltaOps = postDb.content
-            const headingDeltaOps = postDb.heading
 
             return res.render("post", {
                 ...baseResponse,
                 user: req.user,
                 title: `${postDb._id}`,
-                content: contentDeltaOps,
-                heading: headingDeltaOps
+                post: postDb
             })
         } catch (error) {
             next(error)

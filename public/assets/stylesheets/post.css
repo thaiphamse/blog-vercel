@@ -1,68 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 .post-heading,
 .post-content {
     font-family: 'Cabin' !important;
 }
 
-.post-content {
-    margin-bottom: 50px;
+.post-meta {
+    color: #666;
+    font-size: 14px;
+}
 
+.breadcrumbs {
+    background-color: #f4f6fc;
 }
 
 main.wrapper {
-    margin-top: 0;
-}
-
-.header-text-logo,
-.nav-link {
-    color: #fff !important;
-}
-
-header.masthead {
-    margin-bottom: 50px;
-    background: no-repeat center center;
-    background-color: rgba(0, 0, 0, 0);
-    background-attachment: scroll;
-    background-image: none;
-    background-size: auto;
-    background-color: #6c757d;
-    background-attachment: scroll;
-    position: relative;
-    background-size: cover;
-}
-
-.post-heading,
-header.masthead .site-heading {
-    padding: 200px 0;
-    color: white;
-}
-
-.masthead .overplay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #212529 !important;
-    opacity: .1;
+    margin-top: 80px;
 }
 
 .ql-editor {
     padding: 0 !important;
 }
 
-.headingEditor .ql-editor>* {
-    font-family: 'Cabin' !important;
-    font-size: 34px !important;
-    color: #ffffff;
-    text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
-        0px 8px 13px rgba(0, 0, 0, 0.1),
-        0px 18px 23px rgba(0, 0, 0, 0.1);
+.headingEditor * {
+    font-family: 'Roboto' !important;
+    font-size: 26px !important;
+    color: #000;
+
 }
 
 .ql-container.ql-snow {
     padding: 0 !important;
     border: none !important;
     font-size: 16px;
+    height: auto;
+}
+
+.heading-post * {
+    font-size: 16px !important;
+    color: black !important;
+}
+
+.post-col-right {
+    width: 380px !important;
 }

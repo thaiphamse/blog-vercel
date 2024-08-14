@@ -1,43 +1,42 @@
 <link rel="stylesheet" href="/assets/stylesheets/post.css">
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
-
-<header class="masthead" style="background-image: url(/assets/imgs/06.jpg)">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-10 mx-auto p-md-0 p-ld-0">
-                <div class="post-heading">
-                    <div class="headingEditor">{{{heading}}}</div>
-                    <span class="meta">Posted by
-                        <a href="#">Start Bootstrap</a>
-                        on January 31, 2020 · <span class="reading-time" title="Estimated read time">
-                            4 mins read </span>
-                    </span>
-                    <br />
-                    <span class="badge bg-primary">
-                        #tag1
-                    </span>
-                    <span class="badge bg-primary">
-                        #tag2
-                    </span>
-                    <span class="badge bg-primary">
-                        #tag3
-                    </span>
-                </div>
-
-            </div>
+<div class="row mt-2">
+    <div class="breadcrumbs">
+        <div class="container py-lg-2">
+            <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
+                <p>
+                    <a href="https://wiki.tino.org/">Trang chủ</a>
+                    <span class="separator"> » </span>
+                    <a href="https://wiki.tino.org/webmasters/">Webmasters</a>
+                    <span class="separator"> » </span>
+                    <span class="last">Web động là gì? Web tĩnh là gì? Sự khác biệt giữa web động và web tĩnh</span>
+                </p>
+            </nav>
         </div>
     </div>
-</header>
-<div class="container post-content">
-    <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto p-lg-0 p-md-0">
+</div>
+<div class="container post-content mb-2">
+    <div class="row justify-content-between">
+        <div class="col-lg-8 col-md-8 p-lg-0 p-md-0">
+            <div class="headingEditor mt-4">{{{post.heading}}}</div>
+            <div class="post-meta mt-lg-2 mb-lg-5">
+                <span class="me-4">Tác giả: <a class="author"
+                        href="/user/profile/{{post.author._id}}">{{post.author.fullname}}</a></span>
+                <span class="me-4">Ngày đăng: {{momentTime post.createdAt}} - {{momentRelative post.createdAt}}</span>
+                <span title="{{post.topic.[vi-description]}}" class="me-4">Chủ đề: <a
+                        href="https://wiki.tino.org/webmasters/" rel="category tag">{{post.topic.name}}</a></span>
+            </div>
             <div class="editor">
-                {{{content}}}
+                {{{post.content}}}
+            </div>
+        </div>
+        <div class="col-3 p-md-0 post-col-right">
+            <div class="editor">
+                {{!-- {{{content}}} --}}
             </div>
         </div>
     </div>
 </div>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
-<script defer src="/assets/javascripts/post.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script src="/assets/javascripts/post.js"></script>
