@@ -1,15 +1,15 @@
 <link rel="stylesheet" href="/assets/stylesheets/post.css">
 <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet">
-<div class="row mt-2">
+<div class="row mt-2 w-100">
     <div class="breadcrumbs">
-        <div class="container py-lg-2">
+        <div class="container py-2 ">
             <nav aria-label="breadcrumbs" class="rank-math-breadcrumb">
-                <p>
-                    <a href="https://wiki.tino.org/">Trang chủ</a>
+                <p style="margin-left: 12px !important;">
+                    <a href="/">Trang chủ</a>
                     <span class="separator"> » </span>
-                    <a href="https://wiki.tino.org/webmasters/">Webmasters</a>
+                    <a href="/{{post.topic.slug}}">{{post.topic.name}}</a>
                     <span class="separator"> » </span>
-                    <span class="last">Web động là gì? Web tĩnh là gì? Sự khác biệt giữa web động và web tĩnh</span>
+                    <span class="last">{{{stripHtml post.heading}}}</span>
                 </p>
             </nav>
         </div>
@@ -17,23 +17,42 @@
 </div>
 <div class="container post-content mb-2">
     <div class="row justify-content-between">
-        <div class="col-lg-8 col-md-8 p-lg-0 p-md-0">
+        <div class="col-lg-8 col-md-6">
             <div class="headingEditor mt-4">{{{post.heading}}}</div>
             <div class="post-meta mt-lg-2 mb-lg-5">
-                <span class="me-4">Tác giả: <a class="author"
-                        href="/user/profile/{{post.author._id}}">{{post.author.fullname}}</a></span>
+                <span class="me-4">Tác giả:
+                    <a class="author" href="/user/profile/{{post.author._id}}">{{post.author.fullname}}</a>
+                </span>
                 <span class="me-4">Ngày đăng: {{momentTime post.createdAt}} - {{momentRelative post.createdAt}}</span>
-                <span title="{{post.topic.[vi-description]}}" class="me-4">Chủ đề: <a
-                        href="https://wiki.tino.org/webmasters/" rel="category tag">{{post.topic.name}}</a></span>
+                <span title="{{post.topic.[vi-description]}}" class="me-4">Chủ đề:
+                    <a href="/{{post.topic.slug}}" rel="category tag">{{post.topic.name}}</a>
+                </span>
             </div>
-            <div class="editor">
+            <div class="editor main-editor">
                 {{{post.content}}}
             </div>
         </div>
-        <div class="col-3 p-md-0 post-col-right">
-            <div class="editor">
-                {{!-- {{{content}}} --}}
+        <div class="col-3 col-md-3 p-md-0 post-col-right mt-4">
+            {{!-- Muc luc --}}
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" style="background-color: #f3f7ec;">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <h5><i class="fa-solid fa-list-ol fs-5 me-1"></i>Mục lục nội dung</h5>
+
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show">
+                        <div class="accordion-body">
+                            <div class="list-group table-of-content sticky-lg-top sticky-xl-top sticky-md-top">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+
         </div>
     </div>
 </div>

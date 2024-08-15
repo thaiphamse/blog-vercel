@@ -27,7 +27,7 @@
     <div class="container py-5">
 
         <p>
-            <i class="far fa-check-circle"></i>
+            <i class="fa-solid fa-chart-simple me-1"></i>
             <strong>TRENDING ON MEDIUM</strong>
         </p>
 
@@ -62,7 +62,7 @@
         <div class="row m-auto">
             <div id="auto-post" class="col-lg-8 order-2 order-lg-1">
                 <p class="my-0">
-                    <i class="far fa-check-circle"></i>
+                    <i class="fa-solid fa-seedling me-1"></i>
                     <strong>NEW ON MEDIUM</strong>
                 </p>
                 {{#each newPost}}
@@ -85,12 +85,23 @@
                             </small> --}}
                         </div>
                         <div class="post-info">
-                            {{momentDay createdAt}} - <i>{{momentRelative createdAt}}</i> - 6 min read -
+                            <span style="color: rgb(107, 107, 107); font-size: 14px;" role="button" class="me-3 ps-0">
+                                <i class=" fa-solid fa-thumbs-up"></i> 100
+                            </span>
+                            <span style="color: rgb(107, 107, 107); font-size: 14px;" role="button" class="me-3 ">
+                                <i class="fa-solid fa-comment"></i> 20
+                            </span>
+                            <span style="color: rgb(107, 107, 107); font-size: 14px;" role="button" class="me-3 ">
+                                <i class="fa-solid fa-bookmark"></i> 1.2k
+                            </span>
+                            <span style="color: rgb(107, 107, 107); font-size: 16px;" role="button" class="me-3 ">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </span>
+                            {{momentDay createdAt}} - <i>{{momentRelative createdAt}}</i> -
                             <a href="#" class="text-dark text-decoration-underline"
                                 title="{{this.topic.[vi-description]}}">{{this.topic.name}}</a>
-                            <button class="text-dark btn mx-2">
-                                <i class="far fa-bookmark"></i>
-                            </button>
+
+
                         </div>
                     </div>
                     <div class="col-sm-5 order-0 order-sm-1 order-md-1 order-lg-1 mb-2 mb-sm-0 mb-md-0 mb-lg-0">

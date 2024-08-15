@@ -1,11 +1,10 @@
 
 const handlebars = require('express-handlebars')
 const moment = require('moment');
+const path = require('path');
 module.exports = (app) => {
-  const path = require('path');
   // set locale for moment
   moment.locale('vi');
-
   app.engine('.hbs', handlebars.engine({
     // change handlebars extension to .hbs
     extname: '.hbs',

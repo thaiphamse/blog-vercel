@@ -16,7 +16,7 @@ const post = new Schema({
     get: parseToHtml
   },
   tags: [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
-  author: { type: Schema.Types.ObjectId, ref: 'User' },
+  author: { type: Schema.Types.ObjectId, ref: 'User', index: true, },
   topic: { type: Schema.Types.ObjectId, ref: 'Topic', require: true },
   views: { type: Number, default: 0 }, // Số lượt xem
   likes: { type: Number, default: 0 }, // Số lượt thích
@@ -30,7 +30,8 @@ const post = new Schema({
   visibility: {
     type: String,
     enum: ['public', 'private', 'draft'],
-    default: 'private',
+    default: 'draft',
+    index: true
   },
   thumnail: {
     type: String,

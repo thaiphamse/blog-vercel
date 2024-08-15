@@ -57,6 +57,7 @@ const viewPost = async (req, res, next) => {
     if (idQuery) {
         try {
             // Tracking views of post
+            const startTime = process.hrtime()
             postModel.findByIdAndUpdate(idQuery, {
                 $inc: { //increase view
                     views: 1
@@ -66,7 +67,10 @@ const viewPost = async (req, res, next) => {
                     new: true
                 })
                 .then(post => {
+                    const endTime = process.hrtime(startTime);
+                    const queryDurationInSeconds = (endTime[0] + endTime[1] / 1e9).toFixed(3); // Đơn vị là giây, làm tròn 3 chữ số thập phân
                     console.log('Views increase ', post.views, ' by: ', userId);
+                    console.log(queryDurationInSeconds)
                 })
                 .catch(err => console.error(err));
             //Get post info
@@ -79,7 +83,7 @@ const viewPost = async (req, res, next) => {
             }).
                 populate([
                     { path: 'author', select: "_id username fullname email role" },
-                    { path: 'topic', select: "_id name vi-description" }
+                    { path: 'topic', select: "_id name vi-description slug" }
                 ])
             if (!postDb) {
                 return res.render("error", {

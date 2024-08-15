@@ -27,7 +27,7 @@ main.wrapper {
     font-family: 'Roboto' !important;
     font-size: 26px !important;
     color: #000;
-
+    font-weight: 500;
 }
 
 .ql-container.ql-snow {
