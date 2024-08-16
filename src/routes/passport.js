@@ -45,9 +45,9 @@ passport.use(new GoogleStrategy({
             }
         )
         if (isExist) {
-            //Sinh token
 
             let user = {
+                _id: isExist._id,
                 fullname: displayName,
                 email,
                 avatarUrl,
@@ -87,9 +87,10 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-    const registerUsername = req.body.username
-    const registerPassword = req.body.password
-    const registerRePassword = req.body['re-password']
+    const registerUsername = req.body.username || ""
+    const registerPassword = req.body.password || ""
+    const registerEmail = req.body.email || ""
+    const registerRePassword = req.body['re-password'] || ""
     let usernameDb = await userModel.findOne({ username: registerUsername })
 
     if (registerRePassword !== registerPassword)
@@ -117,7 +118,8 @@ router.post('/register', async (req, res) => {
     const hash = bcrypt.hashSync(registerPassword, salt);
     let newUser = new userModel({
         username: registerUsername,
-        password: hash
+        password: hash,
+        email: registerEmail
     })
     try {
         await newUser.save()

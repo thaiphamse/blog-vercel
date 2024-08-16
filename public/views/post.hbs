@@ -16,12 +16,12 @@
     </div>
 </div>
 <div class="container post-content mb-2">
-    <div class="row justify-content-between">
+    <div class="row justify-content-around">
         <div class="col-lg-8 col-md-6">
             <div class="headingEditor mt-4">{{{post.heading}}}</div>
             <div class="post-meta mt-lg-2 mb-lg-5">
                 <span class="me-4">Tác giả:
-                    <a class="author" href="/user/profile/{{post.author._id}}">{{post.author.fullname}}</a>
+                    <a class="author" href="/p/{{post.author.tag}}">{{post.author.fullname}}</a>
                 </span>
                 <span class="me-4">Ngày đăng: {{momentTime post.createdAt}} - {{momentRelative post.createdAt}}</span>
                 <span title="{{post.topic.[vi-description]}}" class="me-4">Chủ đề:
@@ -34,25 +34,22 @@
         </div>
         <div class="col-3 col-md-3 p-md-0 post-col-right mt-4">
             {{!-- Muc luc --}}
-            <div class="accordion" id="accordionExample">
+            <div class="accordion sticky-lg-top sticky-xl-top sticky-md-top" id="accordionExample">
                 <div class="accordion-item">
                     <h2 class="accordion-header" style="background-color: #f3f7ec;">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                             <h5><i class="fa-solid fa-list-ol fs-5 me-1"></i>Mục lục nội dung</h5>
-
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show">
                         <div class="accordion-body">
-                            <div class="list-group table-of-content sticky-lg-top sticky-xl-top sticky-md-top">
+                            <div class="list-group table-of-content">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

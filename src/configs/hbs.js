@@ -59,7 +59,6 @@ module.exports = (app) => {
           }
           formattedInteger += integerArray[i];
         }
-
         // Đảo ngược lại chuỗi phần nguyên để có định dạng đúng
         formattedInteger = formattedInteger.split('').reverse().join('');
 

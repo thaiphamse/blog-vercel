@@ -71,7 +71,8 @@
                         <div class="d-flex align-items-center">
                             <img class="rounded" src="{{this.author.avatarUrl}}" alt="" width="25" loading="lazy">
                             <small class="ms-2">
-                                <a class="text-dark fw-bold text-decoration-none" href="#">{{this.author.fullname}}</a>
+                                <a class="text-dark fw-bold text-decoration-none"
+                                    href="/p/{{this.author.tag}}">{{this.author.fullname}}</a>
                                 {{!-- <a class="text-dark fw-bold text-decoration-none" href="#">Predict</a> --}}
                             </small>
                         </div>
@@ -92,7 +93,7 @@
                                 <i class="fa-solid fa-comment"></i> 20
                             </span>
                             <span style="color: rgb(107, 107, 107); font-size: 14px;" role="button" class="me-3 ">
-                                <i class="fa-solid fa-bookmark"></i> 1.2k
+                                <i class="fa-solid fa-eye"></i> 1k
                             </span>
                             <span style="color: rgb(107, 107, 107); font-size: 16px;" role="button" class="me-3 ">
                                 <i class="fa-solid fa-ellipsis"></i>
@@ -100,8 +101,6 @@
                             {{momentDay createdAt}} - <i>{{momentRelative createdAt}}</i> -
                             <a href="#" class="text-dark text-decoration-underline"
                                 title="{{this.topic.[vi-description]}}">{{this.topic.name}}</a>
-
-
                         </div>
                     </div>
                     <div class="col-sm-5 order-0 order-sm-1 order-md-1 order-lg-1 mb-2 mb-sm-0 mb-md-0 mb-lg-0">
@@ -121,9 +120,7 @@
                     <div class="py-3">
                         {{#each topics}}
                         <a href="#" class="btn rounded-pill btn-warning m-1">{{{this.name}}}</a>
-
                         {{/each}}
-
                     </div>
                 </div>
             </div>

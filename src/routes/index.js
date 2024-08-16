@@ -1,5 +1,6 @@
 const siteRoute = require("./site.route.js");
 const postRoute = require("./post.route.js")
+const profileRoute = require("./profile.route.js")
 const apiRoute = require("./api.route.js")
 
 const passport = require('./passport.js')
@@ -9,6 +10,7 @@ module.exports = (app) => {
   app.use("/oauth2", passport) //google oauth2
   app.use("/redirect", passport) //google redirect
   app.use("/post", postRoute);
+  app.use("/p", profileRoute);
   app.use("/api/v1", apiRoute);
   app.use("/", siteRoute);
 

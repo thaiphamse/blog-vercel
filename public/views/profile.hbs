@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="/assets/stylesheets/profile.css">
+<div class="container mb-2">
+    <div class="row justify-content-around">
+        <div class="col-lg-7 col-md-7 col-12 col-sm-12 mt-5">
+            <div class="">heading</div>
+            <div class="mt-lg-2 mb-lg-5">
+                <span class="me-4">Tác giả:
+                </span>123
+                </span>
+            </div>
+            <div class="editor main-editor">
+                {{#each userPost}}
+                <div class="row py-4 px-2">
+                    <div class="col-md-8 order-1 order-sm-1 order-md-0 order-lg-0">
+                        <div class="d-flex align-items-center">
+                            <img class="rounded" src="{{this.author.avatarUrl}}" alt="" width="25" loading="lazy">
+                            <small class="ms-2">
+                                <a class="text-dark fw-bold text-decoration-none" href="#">{{this.author.fullname}}</a>
+                                {{!-- <a class="text-dark fw-bold text-decoration-none" href="#">Predict</a> --}}
+                            </small>
+                        </div>
+                        <div class="pt-2">
+                            <a href="/post/view/{{this._id}}"
+                                class="heading-post  fw-bold text-dark text-decoration-none">
+                                {{{this.heading}}}
+                            </a><br />
+                            {{!-- <small class="d-block text-truncate" style="max-width: 100%; max-height: 20px">
+                                {{{this.content}}}
+                            </small> --}}
+                        </div>
+                        <div class="post-info">
+                            <span style="color: rgb(107, 107, 107); font-size: 14px;" role="button" class="me-3 ps-0">
+                                <i class=" fa-solid fa-thumbs-up"></i> 100
+                            </span>
+                            <span style="color: rgb(107, 107, 107); font-size: 14px;" role="button" class="me-3 ">
+                                <i class="fa-solid fa-comment"></i> 20
+                            </span>
+                            <span style="color: rgb(107, 107, 107); font-size: 14px;" role="button" class="me-3 ">
+                                <i class="fa-solid fa-eye"></i> 1k
+                            </span>
+                            <span style="color: rgb(107, 107, 107); font-size: 16px;" role="button" class="me-3 ">
+                                <i class="fa-solid fa-ellipsis"></i>
+                            </span>
+                            {{#if (ifEquals this.visibility "private")}}
+                            <span style="font-size: 16px;" role="button" class="me-3 text-danger" title="Riêng tư">
+                                <i class="fa-solid fa-lock"></i>
+                            </span>
+                            {{/if}}
+                            {{#if (ifEquals this.visibility "public")}}
+                            <span style="font-size: 16px;" role="button" class="me-3 text-success" title="Công khai">
+                                <i class="fa-solid fa-unlock-keyhole"></i>
+                            </span>
+                            {{/if}}
+                            {{#if (ifEquals this.visibility "draft")}}
+                            <span style="font-size: 16px;" role="button" class="me-3 text-warning" title="Nháp">
+                                <i class="fa-brands fa-firstdraft"></i>
+                            </span>
+                            {{/if}}
+                            {{momentDay createdAt}} - <i>{{momentRelative createdAt}}</i> -
+                            <a href="#" class="text-dark text-decoration-underline"
+                                title="{{this.topic.[vi-description]}}">{{this.topic.name}}</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 order-0 order-sm-1 order-md-1 order-lg-1 mb-2 mb-sm-0 mb-md-0 mb-lg-0">
+                        <a href="/post/view/{{this._id}}">
+                            <img class="rounded" width="100%"
+                                src="https://www.techsmith.com/blog/wp-content/uploads/2021/02/video-thumbnails-social.png"
+                                alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+        <div class="border-start px-4 col-3 col-md-3 mt-5 sticky-lg-top sticky-md-top "
+            style="min-height: calc(100vh - 80px);">
+            {{!-- Info --}}
+            <div class="profile-info">
+                <div class="profile-info-top">
+                    <img class="rounded-pill mb-2" width="90px" src="{{userProfile.avatarUrl}}" alt="avatar">
+                    <p class="fw-semibold mb-1">{{userProfile.fullname}}
+                        <span class="badge 
+                            {{#unless (ifEquals userProfile.role " admin")}} text-bg-primary {{else}}
+                            text-bg-dark{{/unless}} ">
+                            {{#if (ifEquals userProfile.role " admin")}} <i class="fa-solid fa-user-gear"></i>
+                            {{/if}}
+                            {{#if (ifEquals userProfile.role "user")}}
+                            {{#if (ifEquals userProfile.status "active")}}
+                            <i class="fa-solid fa-user-check"></i>
+                            {{else}}
+                            <i class="fa-solid fa-user-lock"></i>
+                            {{/if}}
+                            {{/if}}
+                            {{userProfile.role}}
+                        </span>
+                    </p>
+                    <p class="fs-15 text-gray mb-4">481 Followers</p>
+                    <div class="Short-bio fs-15 text-gray mb-3">
+                        Software Engineer at Jotform
+                        <a class="text-gray text-decoration-underline bio-external-link-ref"
+                            href="https://www.linkedin.com/in/scozdev/">https://www.linkedin.com/in/scozdev/</a>
+                        <a class="text-gray text-decoration-underline bio-external-link-ref"
+                            href="https://www.linkedin.com/in/scozdev/">https://www.linkedin.com/in/scozdev/</a>
+                        <a class="text-gray text-decoration-underline bio-external-link-ref"
+                            href="https://www.linkedin.com/in/scozdev/">https://www.linkedin.com/in/scozdev/</a>
+                    </div>
+                    <form action="#" method="POST">
+                        <button type="submit"
+                            class="btn bg-primary text-white rounded-pill fs-14 fw-medium">Follow</button>
+
+                    </form>
+
+                </div>
+                <div class="profile-info-bottom"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script src="/assets/javascripts/post.js"></script>

@@ -82,7 +82,7 @@ const viewPost = async (req, res, next) => {
                 ]
             }).
                 populate([
-                    { path: 'author', select: "_id username fullname email role" },
+                    { path: 'author', select: "_id username fullname email role tag" },
                     { path: 'topic', select: "_id name vi-description slug" }
                 ])
             if (!postDb) {
